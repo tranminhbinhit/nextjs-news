@@ -25,20 +25,13 @@ if (isProduction) {
 }
 
 const MyApp = (props) => {
-  const { Component, pageProps, setting, menu, listCategory } = props;
+  const { Component, pageProps, setting } = props;
   const {
-    receiveMenuConnect,
     receiveSettingConnect,
-    receiveCategoryConnect,
   } = props;
-  //console.log('props', props);
   const dispatch = useDispatch();
   useEffect(() => {
-    receiveMenuConnect(menu);
     receiveSettingConnect(setting);
-    receiveCategoryConnect(listCategory);
-
-    // receiveSettingFromAction({config: setting});
   }, [dispatch]);
 
   const isReadyApp = !isEmptyObject(setting);
@@ -59,16 +52,12 @@ const MyApp = (props) => {
 
 
 MyApp.getInitialProps = async (appContext) => {
-  let setting = await getSettingSystem();
-  let menu = await getMenuType({
-    type: 1,
+  let setting = await getSettingSystem({
+    PageTypeId: 2
   });
-  const listCategory = await getCategoryList();
 
   return {
     setting,
-    menu,
-    listCategory,
   };
 }
 
@@ -76,12 +65,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     receiveSettingConnect: (setting) => {
       dispatch(receiveSetting(setting));
-    },
-    receiveMenuConnect: (menu) => {
-      dispatch(receiveMenu(menu));
-    },
-    receiveCategoryConnect: (listCategory) => {
-      dispatch(receiveCategory(listCategory));
     },
   };
 };

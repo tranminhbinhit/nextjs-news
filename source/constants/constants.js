@@ -22,8 +22,4 @@ export const COMMON_CONST = {
 };
 
 export const IGNORE_ERROR = true;
-
-export const API_ENOW = 'https://product-api.enow.vn';
-export const CDN_URL = 'https://cdn.enow.vn';
 export const CURRENCY_SYMBOL = '₫';
-export const SERVER_KEY = '123456789ABCXyzsdfdsf5345345dsfDSFSDF';

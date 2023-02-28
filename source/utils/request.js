@@ -1,6 +1,5 @@
 /* eslint-disable */
 import axios from "axios";
-import { API_ENOW } from "../constants/constants";
 
 import {
   getRandomKey,
@@ -11,10 +10,13 @@ import {
   getUrlFromObject,
 } from "../utils/utils";
 
+const API_ENOW = process.env.API_ENOW;
+
 class Request {
   // static getToken() {
   //   return store.getState().auth.token;
   // }
+  
   static header(url, body = "") {
     let randomKey = getRandomKey(-10);
     let timeStamp = formatDateTimeServer(getDate(0));

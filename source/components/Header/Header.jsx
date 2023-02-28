@@ -184,7 +184,7 @@ class Header extends Component {
                               className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
                               data-item-row="default"
                             >
-                              <a href="/chitiet">
+                              <a href="/dan-ong-trong-long-nho-nhung-phu-nu-se-co-4-bieu-hien-nay-gia-vo-khong-duoc">
                                 Chi tiết
                               </a>
                             </li>

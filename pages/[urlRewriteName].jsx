@@ -9,6 +9,7 @@ import {
 } from "../source/service/newsService";
 import { getProductByCategory } from "../source/service/productService";
 import {
+  getImage,
   getImageCdn,
   getLinkUrl,
   isEmpty,
@@ -28,11 +29,12 @@ export async function getServerSideProps(context) {
     'public, s-maxage=10, stale-while-revalidate=59'
   );
 
-  // const urlRewriteName = query.urlRewriteName;
+  const urlRewriteName = query.urlRewriteName;
 
-  // const newsDetail = await getNewsDetail({
-  //   url: urlRewriteName,
-  // });
+  const newsDetail = await getNewsDetail({
+    PageTypeId: 2,
+    NameRewrite: urlRewriteName,
+  });
 
   // const listNewsRelate = await getNewsListRelate({
   //   id: newsDetail.NewsId,
@@ -51,7 +53,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      // newsDetail,
+      newsDetail,
       // listNewsRelate,
       // listProduct,
     },
@@ -61,35 +63,39 @@ export async function getServerSideProps(context) {
 const NewsDetail = (props) => {
   const { newsDetail, listNewsRelate, listProduct, config } = props;
   const {
-    NewsName,
-    NewsImage,
-    NewsUrl,
-    NewsDescription,
-    CreatedDate,
-    NewsId,
-    NewsCategoryName = "",
-    NewsCategoryUrl = "",
-    NewsContent,
-    CategoryProductId,
-    AdsTitle,
+    SeoData,
+    ValueData,
+    HtmlContent,
+    NameRewrite: NewsUrl,
+    CreatedDate
   } = newsDetail || {};
-  const roots = [
-    {
-      Url: getLinkUrl(EnumRoutingPage.CATEGORY_NEWS.id, NewsCategoryUrl),
-      Name: NewsCategoryName,
-    },
-    {
-      Url: "",
-      Name: NewsName,
-    },
-  ];
+  const {
+    SeoAttrImage: NewsImage,
+    SeoAttrContentDescription: NewsDescription,
+    SeoAttrContentKeyword: AdsTitle,
+  } = SeoData || {};
+  const {
+    TextTitle: NewsName,
+  } = ValueData || {};
+  // const roots = [
+  //   {
+  //     Url: getLinkUrl(EnumRoutingPage.CATEGORY_NEWS.id, NewsCategoryUrl),
+  //     Name: NewsCategoryName,
+  //   },
+  //   {
+  //     Url: "",
+  //     Name: NewsName,
+  //   },
+  // ];
+
+  const newsImage = getImage(NewsImage);
 
   return (
     <Layout
       config={config}
       title={NewsName}
       description={NewsDescription}
-      image={getImageCdn(NewsImage)}
+      image={newsImage}
     >
       {/* <FutureTitle roots={roots} /> */}
       <div className="jeg_content">
@@ -109,7 +115,7 @@ const NewsDetail = (props) => {
                   </div>
                 </div>
                 <div className="entry-header">
-                  <h1 className="jeg_post_title">Chuyên gia Kiều Nguyễn chinh phục khách hàng với sự tận tâm cống hiến</h1>
+                  <h1 className="jeg_post_title">{NewsName}</h1>
                   <div className="jeg_meta_container">
                     <div className="jeg_post_meta jeg_post_meta_1">
                       <div className="meta_left">
@@ -123,16 +129,18 @@ const NewsDetail = (props) => {
                 </div>
                 <div className="jeg_featured featured_image">
                   <a>
-                    
-                      <img width="750" height="375" src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/9-ngoisaovn-w1200-h720-1-750x375.jpg" className="attachment-jnews-750x375 size-jnews-750x375 wp-post-image lazyautosizes lazyloaded" alt="Nicola Peltz đang đưa câu chuyện ‘chiếc váy cưới’ đi quá xa khiến Victoria bối rối" decoding="async" sizes="750px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/9-ngoisaovn-w1200-h720-1-750x375.jpg" />
-                    
+
+                    <img width="750" height="375" src={newsImage} className="attachment-jnews-750x375 size-jnews-750x375 wp-post-image lazyautosizes lazyloaded" alt="Nicola Peltz đang đưa câu chuyện ‘chiếc váy cưới’ đi quá xa khiến Victoria bối rối" decoding="async" sizes="750px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/9-ngoisaovn-w1200-h720-1-750x375.jpg" />
+
                   </a>
                 </div>
                 <div className="jeg_ad jeg_article jnews_content_top_ads">
                   <div className="ads-wrapper"></div>
                 </div>
                 <div className="entry-content no-share">
-                  noi dung
+                  <div dangerouslySetInnerHTML={{
+                    __html: HtmlContent,
+                  }} />
                 </div>
                 <div className="jeg_ad jeg_article jnews_content_bottom_ads">
                   <div className="ads-wrapper"><a href="https://card.apply.hsbc.com.vn/quyen-loi-HSBC-Premier/vn" rel="noopener" className="adlink ads_image">

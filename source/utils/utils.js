@@ -6,11 +6,8 @@ import moment from "moment";
 import Base64 from "crypto-js/enc-base64";
 
 import {
-  CDN_URL,
   COMMON_CONST,
   CURRENCY_SYMBOL,
-  SERVER_KEY,
-  VERSION_CONFIG,
 } from "../constants/constants";
 import { EnumRoutingPage } from "../constants/enum";
 
@@ -30,7 +27,7 @@ export function hashPassword(password, salt, verifyCode) {
 }
 
 export function isSuccess(response) {
-  return response && response.success;
+  return response && response.Code == '200';
 }
 
 export function getParameterByName(rawName, rawUrl) {
@@ -203,14 +200,28 @@ export function getRandomKey(size) {
 export function getKeyHash(url, body, randomKey, timeStamp) {
   const newURL = url.replace(/:(\d{1,9})/, "");
   const token = `${newURL}${body}${randomKey}${timeStamp}`;
-  const hash = hmacSHA256(token, SERVER_KEY);
+  const hash = hmacSHA256(token, process.env.SERVER_KEY);
   const hashInBase64 = Base64.stringify(hash);
   return hashInBase64;
 }
 
-export function getImageCdn(url) {
-  return `${CDN_URL}/${url}`;
+export function getImageCdn(url, size = undefined) {
+  const sizeImage = !isEmpty(size) ? size + '/' : '';
+  return `${process.env.CDN_URL}/${sizeImage}${url}`;
 }
+
+export function getImage(url, size) {
+  if (!isEmpty(url)) {
+    if (url.indexOf('http://') < 0 && url.indexOf('https://') < 0) {
+      return getImageCdn(url, size);
+    } else {
+      return url;
+    }
+  } else {
+    return '/images/no-image.png';
+  }
+}
+
 
 export function generateUUIDEx() {
   // Public Domain/MIT
