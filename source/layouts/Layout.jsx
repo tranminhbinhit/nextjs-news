@@ -3,7 +3,12 @@ import Head from "next/head";
 import Header from "../components/Header/Header";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { getImageCdn, getSettingValue, isEmpty, isEmptyObject } from "../utils/utils";
+import {
+  getImageCdn,
+  getSettingValue,
+  isEmpty,
+  isEmptyObject,
+} from "../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../components/Footer/Footer";
 import Loading from "../components/Loading/Loading";
@@ -63,7 +68,14 @@ const Layout = ({ children, title, description, image, config }) => {
 
       <div id="wrapper">
         <Header />
-        {isMounted && <main>{children}</main>}
+
+        {isMounted && (
+          <div class="jeg_main">
+            <div class="jeg_container">
+              {children}
+            </div>
+          </div>
+        )}
         <Footer />
         <Loading />
       </div>

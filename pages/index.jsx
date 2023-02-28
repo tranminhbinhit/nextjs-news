@@ -58,9 +58,9 @@ const Home = (props) => {
     <Layout config={config}>
       <main id="main">
         <div id="content" role="main" className="content-area">
-          <BannerSlider listBanner={listBanner} />
+          {/* <BannerSlider listBanner={listBanner} />
           <BannerList listBanner={listBanner} />
-          <LandingPageBox listDataPage={listDataPage} />
+          <LandingPageBox listDataPage={listDataPage} /> */}
         </div>
       </main>
     </Layout>

@@ -19,14 +19,197 @@ export default class CustomDocument extends Document {
     const { isProduction } = this.props;
 
     return (
-      <Html lang="en">
+      <Html lang="vi">
         <Head>
+          {/* <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
           <link
-            rel="stylesheet"
-            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-            crossorigin="anonymous"
+            rel="preconnect"
+            href="https://fonts.gstatic.com/"
+            crossorigin=""
           />
+
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=yes"
+          />
+          <link rel="profile" href="http://gmpg.org/xfn/11" />
+          <link rel="pingback" href="https://ngoisaoexpress.net/xmlrpc.php" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Ngôi Sao Express" />
+          <meta property="og:site_name" content="Ngôi Sao Express" />
+          <meta property="og:description" content="Chuyện làng sao Việt" />
+          <meta property="og:url" content="https://ngoisaoexpress.net" />
+          <meta
+            property="og:image"
+            content="https://ngoisaoexpress.net/wp-content/uploads/2022/09/Web_ngoisaoexpress.jpg"
+          />
+          <meta property="og:image:height" content="315" />
+          <meta property="og:image:width" content="600" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:url" content="https://ngoisaoexpress.net" />
+          <meta name="twitter:title" content="Ngôi Sao Express" />
+          <meta name="twitter:description" content="Chuyện làng sao Việt" />
+          <meta
+            name="twitter:image:src"
+            content="https://ngoisaoexpress.net/wp-content/uploads/2022/09/Web_ngoisaoexpress.jpg"
+          />
+          <meta name="twitter:image:width" content="600" />
+          <meta name="twitter:image:height" content="315" />
+          <title>Ngôi Sao Express - Chuyện làng sao Việt</title>
+          <meta
+            name="description"
+            content="Ngôi Sao Express - Cập nhật tin tức ngôi sao giải trí, video clip, hình ảnh những người nổi tiếng, tin HOT, chuyện hậu trường, đời tư showbiz, scandal sao Việt và Thế giới ..."
+          />
+          <meta
+            name="robots"
+            content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+          />
+          <link rel="canonical" href="https://ngoisaoexpress.net/" />
+          <meta property="og:locale" content="vi_VN" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:title"
+            content="Ngôi Sao Express - Chuyện làng sao Việt"
+          />
+          <meta
+            property="og:description"
+            content="Ngôi Sao Express - Cập nhật tin tức ngôi sao giải trí, video clip, hình ảnh những người nổi tiếng, tin HOT, chuyện hậu trường, đời tư showbiz, scandal sao Việt và Thế giới ..."
+          />
+          <meta property="og:url" content="https://ngoisaoexpress.net/" />
+          <meta property="og:site_name" content="Ngôi Sao Express" />
+          <meta
+            property="og:updated_time"
+            content="2023-01-02T13:53:46+07:00"
+          />
+          <meta
+            property="og:image"
+            content="https://ngoisaoexpress.net/wp-content/uploads/2022/09/Web_ngoisaoexpress.jpg"
+          />
+          <meta
+            property="og:image:secure_url"
+            content="https://ngoisaoexpress.net/wp-content/uploads/2022/09/Web_ngoisaoexpress.jpg"
+          />
+          <meta property="og:image:width" content="600" />
+          <meta property="og:image:height" content="315" /> */}
+
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="wp-block-library-css"
+            href="./css/0b19ad16dc8f7e0ef447ca2c9805a770.css"
+            type="text/css"
+            media="all"
+          />
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="classic-theme-styles-css"
+            href="./css/e2af66c0326a3404733939e1634da495.css"
+            type="text/css"
+            media="all"
+          />
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="js_composer_front-css"
+            href="./css/19b0085f6533691d458b076654a21b21.css"
+            type="text/css"
+            media="all"
+          />
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="jnews-frontend-css"
+            href="./css/bacdf562bd713188ea9c97d4ef4db582.css"
+            type="text/css"
+            media="all"
+          />
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="jnews-js-composer-css"
+            href="./css/7a0de2af82f057beb7eec3fb83311397.css"
+            type="text/css"
+            media="all"
+          />
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="jnews-style-css"
+            href="./css/77c34c0a62fefbbed0a7b3ced25c0666.css"
+            type="text/css"
+            media="all"
+          />
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="jnews-darkmode-css"
+            href="./css/43526ca4d0b6871ef16efc69a5fce965.css"
+            type="text/css"
+            media="all"
+          />
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="jnews-scheme-css"
+            href="./css/aeedd786a7252eb0e22dc419e19dc566.css"
+            type="text/css"
+            media="all"
+          />
+          <link
+            data-optimized="1"
+            data-asynced="1"
+            as="style"
+            rel="stylesheet"
+            id="jnews-weather-style-css"
+            href="./css/e905100cf1b5d21de7dfc23eef66fecb.css"
+            type="text/css"
+            media="all"
+          />
+
+          <script
+            type="text/javascript"
+            src="./js/jquery.min.js"
+            id="jquery-core-js"
+          ></script>
+
+          <link
+            rel="icon"
+            href="https://ngoisaoexpress.net/wp-content/uploads/2022/08/cropped-Icon_NgoiSaoExpress-1-32x32.png"
+            sizes="32x32"
+          />
+          <link
+            rel="icon"
+            href="https://ngoisaoexpress.net/wp-content/uploads/2022/08/cropped-Icon_NgoiSaoExpress-1-192x192.png"
+            sizes="192x192"
+          />
+          <link
+            rel="apple-touch-icon"
+            href="https://ngoisaoexpress.net/wp-content/uploads/2022/08/cropped-Icon_NgoiSaoExpress-1-180x180.png"
+          />
+          <meta
+            name="msapplication-TileImage"
+            content="https://ngoisaoexpress.net/wp-content/uploads/2022/08/cropped-Icon_NgoiSaoExpress-1-270x270.png"
+          />
+
+          <link rel="stylesheet" href="./css/style.css" media="all" />
           {/* We only want to add the scripts if in production */}
           {isProduction && (
             <Fragment>
@@ -51,34 +234,28 @@ export default class CustomDocument extends Document {
             </Fragment>
           )}
         </Head>
-        <body className="home page-template page-template-page-blank  page full-width header-shadow lightbox nav-dropdown-has-arrow nav-dropdown-has-shadow nav-dropdown-has-border">
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-          {/* <script src="./js/jquery.min.js"></script>
-          <script src="./js/custom.js"></script>
-          <script src="./js/hoverIntent.min.js"></script>
-          <script src="./js/flatsome.js"></script> */}
+        <body
+          class="home page-template page-template-template-builder page-template-template-builder-php page page-id-1956 wp-embed-responsive jeg_toggle_light jnews jsc_normal wpb-js-composer js-comp-ver-6.8.0 vc_responsive"
+          cz-shortcut-listen="true"
+        >
+          <div class="jeg_ad jeg_ad_top jnews_header_top_ads">
+            <div class="ads-wrapper"></div>
+          </div>
+          <div class="jeg_viewport">
+            <Main />
+            <NextScript />
+          </div>
+          <div id="jeg_off_canvas" class="normal">
+            <a href="https://ngoisaoexpress.net/#" class="jeg_menu_close">
+              <i class="jegicon-cross"></i>
+            </a>
+            <div class="jeg_bg_overlay"></div>
+          </div>
           <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"
+            data-optimized="1"
+            src="./js/129980acb040f76a70bccde6002a5ef6.js"
+            defer=""
           ></script>
-          <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"
-          ></script>
-
-          <div id="fb-root"></div>
-          <script
-            async
-            defer
-            crossorigin="anonymous"
-            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0&appId=363268868276339&autoLogAppEvents=1"
-            nonce="euufw4pJ"
-          ></script>
-
-          <Main />
-          <NextScript />
         </body>
       </Html>
     );

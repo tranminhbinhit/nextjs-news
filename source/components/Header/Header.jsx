@@ -17,24 +17,24 @@ class Header extends Component {
   static async getInitialProps(ctx) {}
 
   showHeaderWhenScroll = () => {
-    const topcontrol = $(".header .header-wrapper");
-    $(window).on("scroll", () => {
-      if ($(window).scrollTop() > 700) {
-        topcontrol.addClass("stuck");
-      } else {
-        topcontrol.removeClass("stuck");
-      }
-    });
+    // const topcontrol = $(".header .header-wrapper");
+    // $(window).on("scroll", () => {
+    //   if ($(window).scrollTop() > 700) {
+    //     topcontrol.addClass("stuck");
+    //   } else {
+    //     topcontrol.removeClass("stuck");
+    //   }
+    // });
   };
 
-  componentDidMount() {
-    this.showHeaderWhenScroll();
-  }
+  // componentDidMount() {
+  //   this.showHeaderWhenScroll();
+  // }
 
-  onchangeStatePopup = (controlKey, value) => {
-    const { changeStatePopupConnect } = this.props;
-    changeStatePopupConnect(controlKey, value);
-  };
+  // onchangeStatePopup = (controlKey, value) => {
+  //   const { changeStatePopupConnect } = this.props;
+  //   changeStatePopupConnect(controlKey, value);
+  // };
 
   render() {
     const { config, changeLanguageConnect, language, menus } = this.props;
@@ -59,234 +59,493 @@ class Header extends Component {
     const websiteFavicon = getSettingValue(WEB_FAVICON_IMAGE);
     const isOrderCart = getSettingValue(WEB_ORDER_CART);
 
-    const listLanguage = EnumLanguage.map((lang) => {
-      const { id, code, name } = lang;
-      return (
-        <div
-          key={id}
-          className="dropdown-item"
-          onClick={() => changeLanguageConnect(code)}
-        >
-          <span className={`icon icon-lag-${code === "vi" ? "vn" : code}`} />
-          <span className="language-item">{name}</span>
-        </div>
-      );
-    });
+    // const listLanguage = EnumLanguage.map((lang) => {
+    //   const { id, code, name } = lang;
+    //   return (
+    //     <div
+    //       key={id}
+    //       className="dropdown-item"
+    //       onClick={() => changeLanguageConnect(code)}
+    //     >
+    //       <span className={`icon icon-lag-${code === "vi" ? "vn" : code}`} />
+    //       <span className="language-item">{name}</span>
+    //     </div>
+    //   );
+    // });
 
     return (
       <React.Fragment>
-        <header className="header has-sticky sticky-jump">
-          <div className="header-wrapper">
-            <div className="header-main">
-              <div
-                className="header-inner flex-row container logo-left medium-logo-center"
-                role="navigation"
-              >
-                <div id="logo" className="flex-col logo">
-                  <Link href={"/"} title={websiteTitle} className="cursor">
-                    <a>
-                      <img
-                        width="356"
-                        height="120"
-                        src={getImageCdn(websiteLogo)}
-                        className="header_logo header-logo"
-                        alt={websiteTitle}
-                      />
-                      <img
-                        width="356"
-                        height="120"
-                        src={getImageCdn(websiteLogo)}
-                        className="header-logo-dark"
-                        alt={websiteTitle}
-                      />
-                    </a>
-                  </Link>
-                </div>
-
-                <div className="flex-col show-for-medium flex-left">
-                  <ul className="mobile-nav nav nav-left" />
-                </div>
-                <SearchForm />
-                <div className="flex-col hide-for-medium flex-right">
-                  <ul className="header-nav header-nav-main nav nav-right nav-size-large nav-uppercase">
-                    <li className="header-block">
-                      <div className="header-block-block-1">
-                        <div className="icon-box featured-box h-info icon-box-left text-left">
-                          <div className="icon-box-img w35">
-                            <div className="icon">
-                              <div
-                                className="icon-inner"
-                                style={{ color: "rgb(241, 145, 16)" }}
-                              >
-                                <svg
-                                  version="1.1"
-                                  x="0px"
-                                  y="0px"
-                                  viewBox="0 0 469.333 469.333"
-                                  style={{
-                                    enableBackground: "new 0 0 469.333 469.333",
-                                  }}
-                                >
-                                  <g>
-                                    <g>
-                                      <g>
-                                        <path
-                                          d="M234.667,0C105.271,0,0,114.844,0,256v106.667c0,5.896,4.771,10.667,10.667,10.667s10.667-4.771,10.667-10.667V256
-c0-129.396,95.698-234.667,213.333-234.667S448,126.604,448,256v106.667c0,5.896,4.771,10.667,10.667,10.667
-c5.896,0,10.667-4.771,10.667-10.667V256C469.333,114.844,364.063,0,234.667,0z"
-                                        />
-                                        <path
-                                          d="M117.333,256h-32c-23.531,0-42.667,19.135-42.667,42.667v128c0,23.531,19.135,42.667,42.667,42.667h32
-c5.896,0,10.667-4.771,10.667-10.667v-192C128,260.771,123.229,256,117.333,256z M106.667,448H85.333
-C73.573,448,64,438.427,64,426.667v-128c0-11.76,9.573-21.333,21.333-21.333h21.333V448z"
-                                        />
-                                        <path
-                                          d="M384,256h-32c-5.896,0-10.667,4.771-10.667,10.667v192c0,5.896,4.771,10.667,10.667,10.667h32
-c23.531,0,42.667-19.135,42.667-42.667v-128C426.667,275.135,407.531,256,384,256z M405.333,426.667
-c0,11.76-9.573,21.333-21.333,21.333h-21.333V277.333H384c11.76,0,21.333,9.573,21.333,21.333V426.667z"
-                                        />
-                                      </g>
-                                    </g>
-                                  </g>
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                  <g />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="icon-box-text last-reset">
-                            <div className="text h-hotline">
-                              <p>
-                                <span className="sub-title">Hotline</span>
-                                <strong>
-                                  <span
-                                    className="title"
-                                    data-text-color="primary"
-                                  >
-                                    {formatPhone(
-                                      getSettingValue(CONTRACT_HOTLINE),
-                                      "."
-                                    )}
-                                  </span>
-                                </strong>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
+        <div class="jeg_header_wrapper">
+          <div class="jeg_header_instagram_wrapper"></div>
+          <div class="jeg_header normal">
+            <div class="jeg_topbar jeg_container dark">
+              <div class="container">
+                <div class="jeg_nav_row">
+                  <div class="jeg_nav_col jeg_nav_left  jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_alignleft">
+                      <div class="jeg_nav_item jeg_top_date">
+                        Thứ Tư, Tháng Hai 22, 2023
                       </div>
-                    </li>
-                    {/* <li className="account-item has-icon">
-                      <div className="header-button">
-                        <a className="nav-top-link nav-top-not-logged-in icon primary button circle is-small">
-                          <i className="icon-user" />
-                        </a>
+                    </div>
+                  </div>
+                  <div class="jeg_nav_col jeg_nav_center  jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_aligncenter"></div>
+                  </div>
+                  <div class="jeg_nav_col jeg_nav_right  jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignright">
+                      <div class="jeg_nav_item jeg_nav_html">
+                        quangcao@ngoisaoexpress.net
                       </div>
-                    </li> */}
-                    {isOrderCart ? <WebPopupCart /> : ""}
-
-                    {/* <li className="account-item has-icon">
-                      <div className="header-button dropdown cursor">
-                        <a
-                          className="dropdown-toggle"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <span
-                            className={`icon icon-lag-${
-                              language === 'vi' ? 'vn' : language
-                            }`}
-                          />
-                          <i className="fas fa-globe-africa fs20" />
-                        </a>
-                        <div
-                          className="dropdown-menu dropdown-menu-right"
-                          aria-labelledby="dropdownMenuButton"
-                        >
-                          {listLanguage}
-                        </div>
-                      </div>
-                    </li> */}
-                  </ul>
-                </div>
-
-                <div className="flex-col show-for-medium flex-right">
-                  <ul className="mobile-nav nav nav-right">
-                    <li className="header-search header-search-lightbox has-icon">
-                      <div className="header-button">
-                        <a
-                          className="icon primary button circle is-small"
-                          onClick={() =>
-                            this.onchangeStatePopup("isPopupMobileSearch", true)
-                          }
-                        >
-                          <i className="icon-search fs16" />
-                        </a>
-                      </div>
-                      <MobilePopupSearch />
-                    </li>
-                    {isOrderCart ? (
-                      <li className="cart-item has-icon">
-                        <a
-                          className="header-cart-link off-canvas-toggle nav-top-link is-small"
-                          title="Giỏ hàng"
-                          onClick={() =>
-                            this.onchangeStatePopup("isPopupMobileCart", true)
-                          }
-                        >
-                          <i
-                            className="icon-shopping-basket"
-                            data-icon-label="3"
-                          >
-                            {" "}
-                          </i>
-                        </a>
-                        <MobilePopupCart />
-                      </li>
-                    ) : (
-                      ""
-                    )}
-
-                    <li className="nav-icon has-icon">
-                      <div className="header-button">
-                        <a
-                          className="icon primary button circle is-small"
-                          onClick={() =>
-                            this.onchangeStatePopup("isPopupMobileMenu", true)
-                          }
-                        >
-                          <i className="icon-menu" />
-                        </a>
-                      </div>
-                      <MobilePopupMenu menus={menus} />
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <WebMenu menus={menus} />
-
-            <div className="header-bg-container fill">
-              <div className="header-bg-image fill" />
-              <div className="header-bg-color fill" />
+            <div class="jeg_midbar jeg_container dark">
+              <div class="container">
+                <div class="jeg_nav_row">
+                  <div class="jeg_nav_col jeg_nav_left jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignleft">
+                      <div class="jeg_nav_item jeg_logo jeg_desktop_logo">
+                        <h1 class="site-title">
+                          <a
+                            href="https://ngoisaoexpress.net/"
+                          >
+                            <img
+                              class="jeg_logo_img"
+                              src="./images/logo_NgoiSaoExpress.png"
+                              alt="Ngôi Sao Express"
+                              data-light-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
+                              data-light-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
+                              data-dark-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
+                              data-dark-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
+                              data-pin-no-hover="true"
+                            />
+                            {/* <span>
+                              Ngôi Sao Express
+                            </span>{" "} */}
+                          </a>
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_aligncenter"></div>
+                  </div>
+                  <div class="jeg_nav_col jeg_nav_right jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_alignright">
+                      <div class="jeg_nav_item jeg_ad jeg_ad_top jnews_header_ads">
+                        <div class="ads-wrapper">
+                          <a
+                            href="https://www.youtube.com/watch?v=b8xTHR6bNxE"
+                            rel="noopener"
+                            class="adlink ads_image"
+                          >
+                            <img
+                              src="./images/Biore_728x90px.jpg"
+                              class=" lazyloaded"
+                              data-src="http://ngoisaoexpress.net/wp-content/uploads/2022/08/Biore_728x90px.jpg"
+                              alt="Advertisement"
+                              data-pin-no-hover="true"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="jeg_bottombar jeg_navbar jeg_container jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_dark">
+              <div class="container">
+                <div class="jeg_nav_row">
+                  <div class="jeg_nav_col jeg_nav_left jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_alignleft">
+                      <div class="jeg_nav_item jeg_main_menu_wrapper">
+                        <div class="jeg_mainmenu_wrap">
+                          <ul
+                            class="jeg_menu jeg_main_menu jeg_menu_style_4 sf-js-enabled sf-arrows"
+                            data-animation="animate"
+                          >
+                            <li
+                              id="menu-item-1963"
+                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1956 current_page_item menu-item-1963 bgnav"
+                              data-item-row="default"
+                            >
+                              <a href="https://ngoisaoexpress.net/">
+                                Trang chủ
+                              </a>
+                            </li>
+                            <li
+                              id="menu-item-2000"
+                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
+                              data-item-row="default"
+                            >
+                              <a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/">
+                                Chuyện làng sao
+                              </a>
+                            </li>
+                            <li
+                              id="menu-item-2001"
+                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2001 bgnav"
+                              data-item-row="default"
+                            >
+                              <a href="https://ngoisaoexpress.net/category/lam-dep/">
+                                Làm đẹp
+                              </a>
+                            </li>
+                            <li
+                              id="menu-item-2002"
+                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2002 bgnav"
+                              data-item-row="default"
+                            >
+                              <a href="https://ngoisaoexpress.net/category/suc-khoe/">
+                                Sức khoẻ
+                              </a>
+                            </li>
+                            <li
+                              id="menu-item-2003"
+                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2003 bgnav"
+                              data-item-row="default"
+                            >
+                              <a href="https://ngoisaoexpress.net/category/nam-gioi/">
+                                Nam giới
+                              </a>
+                            </li>
+                            <li
+                              id="menu-item-2004"
+                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2004 bgnav"
+                              data-item-row="default"
+                            >
+                              <a href="https://ngoisaoexpress.net/category/phim-nhac/">
+                                Phim nhạc
+                              </a>
+                            </li>
+                            <li
+                              id="menu-item-2005"
+                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005 bgnav"
+                              data-item-row="default"
+                            >
+                              <a href="https://ngoisaoexpress.net/category/nu-gioi/">
+                                Nữ giới
+                              </a>
+                            </li>
+                            <li
+                              id="menu-item-2006"
+                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2006 bgnav"
+                              data-item-row="default"
+                            >
+                              <a href="https://ngoisaoexpress.net/category/thoi-trang/">
+                                Thời trang
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_aligncenter"></div>
+                  </div>
+                  <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignright">
+                      <div class="jeg_nav_item jeg_nav_search">
+                        <div class="jeg_search_wrapper jeg_search_no_expand rounded">
+                          <a
+                            href="https://ngoisaoexpress.net/#"
+                            class="jeg_search_toggle"
+                          >
+                            <i class="fa fa-search"></i>
+                          </a>
+                          {/* <form
+                            action="https://ngoisaoexpress.net/"
+                            method="get"
+                            class="jeg_search_form"
+                            target="_top"
+                          >
+                            <input
+                              name="s"
+                              class="jeg_search_input"
+                              placeholder="Tìm kiếm..."
+                              type="text"
+                              value=""
+                              autocomplete="off"
+                            />
+                            <button
+                              aria-label="Search Button"
+                              type="submit"
+                              class="jeg_search_button btn"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </form> */}
+                          <div class="jeg_search_result jeg_search_hide with_result">
+                            <div class="search-result-wrapper"></div>
+                            <div class="search-link search-noresult">
+                              Không có kết quả
+                            </div>
+                            <div class="search-link search-all-button">
+                              <i class="fa fa-search"></i> Xem tất cả kết quả
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </header>
+        </div>
+        <div class="jeg_header_sticky">
+          <div class="sticky_blankspace"></div>
+          <div class="jeg_header normal">
+            <div class="jeg_container">
+              <div
+                data-mode="scroll"
+                class="jeg_stickybar jeg_navbar jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_dark"
+              >
+                <div class="container">
+                  <div class="jeg_nav_row">
+                    <div class="jeg_nav_col jeg_nav_left jeg_nav_grow">
+                      <div class="item_wrap jeg_nav_alignleft">
+                        <div class="jeg_nav_item jeg_logo">
+                          <div class="site-title">
+                            <a href="https://ngoisaoexpress.net/">
+                              <img
+                                class="jeg_logo_img"
+                                src="./images/logo_NgoiSaoExpress.png"
+                                alt="Ngôi Sao Express"
+                                data-light-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
+                                data-light-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
+                                data-dark-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
+                                data-dark-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
+                                data-pin-no-hover="true"
+                              />{" "}
+                            </a>
+                          </div>
+                        </div>
+                        <div class="jeg_nav_item jeg_main_menu_wrapper">
+                          <div class="jeg_mainmenu_wrap">
+                            <ul
+                              class="jeg_menu jeg_main_menu jeg_menu_style_4 sf-js-enabled sf-arrows"
+                              data-animation="animate"
+                            >
+                              <li
+                                id="menu-item-1963"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1956 current_page_item menu-item-1963 bgnav"
+                                data-item-row="default"
+                              >
+                                <a href="https://ngoisaoexpress.net/">
+                                  Trang chủ
+                                </a>
+                              </li>
+                              <li
+                                id="menu-item-2000"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
+                                data-item-row="default"
+                              >
+                                <a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/">
+                                  Chuyện làng sao
+                                </a>
+                              </li>
+                              <li
+                                id="menu-item-2001"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2001 bgnav"
+                                data-item-row="default"
+                              >
+                                <a href="https://ngoisaoexpress.net/category/lam-dep/">
+                                  Làm đẹp
+                                </a>
+                              </li>
+                              <li
+                                id="menu-item-2002"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2002 bgnav"
+                                data-item-row="default"
+                              >
+                                <a href="https://ngoisaoexpress.net/category/suc-khoe/">
+                                  Sức khoẻ
+                                </a>
+                              </li>
+                              <li
+                                id="menu-item-2003"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2003 bgnav"
+                                data-item-row="default"
+                              >
+                                <a href="https://ngoisaoexpress.net/category/nam-gioi/">
+                                  Nam giới
+                                </a>
+                              </li>
+                              <li
+                                id="menu-item-2004"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2004 bgnav"
+                                data-item-row="default"
+                              >
+                                <a href="https://ngoisaoexpress.net/category/phim-nhac/">
+                                  Phim nhạc
+                                </a>
+                              </li>
+                              <li
+                                id="menu-item-2005"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005 bgnav"
+                                data-item-row="default"
+                              >
+                                <a href="https://ngoisaoexpress.net/category/nu-gioi/">
+                                  Nữ giới
+                                </a>
+                              </li>
+                              <li
+                                id="menu-item-2006"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2006 bgnav"
+                                data-item-row="default"
+                              >
+                                <a href="https://ngoisaoexpress.net/category/thoi-trang/">
+                                  Thời trang
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                      <div class="item_wrap jeg_nav_aligncenter"></div>
+                    </div>
+                    <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                      <div class="item_wrap jeg_nav_alignright">
+                        <div class="jeg_nav_item jeg_search_wrapper search_icon jeg_search_popup_expand">
+                          <a
+                            href="https://ngoisaoexpress.net/#"
+                            class="jeg_search_toggle"
+                          >
+                            <i class="fa fa-search"></i>
+                          </a>
+                          {/* <form
+                            action="https://ngoisaoexpress.net/"
+                            method="get"
+                            class="jeg_search_form"
+                            target="_top"
+                          >
+                            <input
+                              name="s"
+                              class="jeg_search_input"
+                              placeholder="Tìm kiếm..."
+                              type="text"
+                              value=""
+                              autocomplete="off"
+                            />
+                            <button
+                              aria-label="Search Button"
+                              type="submit"
+                              class="jeg_search_button btn"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </form> */}
+                          <div class="jeg_search_result jeg_search_hide with_result">
+                            <div class="search-result-wrapper"></div>
+                            <div class="search-link search-noresult">
+                              Không có kết quả
+                            </div>
+                            <div class="search-link search-all-button">
+                              <i class="fa fa-search"></i> Xem tất cả kết quả
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="jeg_navbar_mobile_wrapper">
+          <div class="jeg_navbar_mobile" data-mode="scroll">
+            <div class="jeg_mobile_bottombar jeg_mobile_midbar jeg_container dark">
+              <div class="container">
+                <div class="jeg_nav_row">
+                  <div class="jeg_nav_col jeg_nav_left jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignleft">
+                      <div class="jeg_nav_item">
+                        <a
+                          href="https://ngoisaoexpress.net/#"
+                          class="toggle_btn jeg_mobile_toggle"
+                        >
+                          <i class="fa fa-bars"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="jeg_nav_col jeg_nav_center jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_aligncenter">
+                      <div class="jeg_nav_item jeg_mobile_logo">
+                        <div class="site-title">
+                          <a href="https://ngoisaoexpress.net/">
+                            <img
+                              class="jeg_logo_img"
+                              src="./images/logo_NgoiSaoExpress.png"
+                              alt="Ngôi Sao Express"
+                              data-light-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
+                              data-light-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
+                              data-dark-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
+                              data-dark-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
+                              data-pin-no-hover="true"
+                            />{" "}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignright">
+                      <div class="jeg_nav_item jeg_search_wrapper jeg_search_popup_expand">
+                        <a
+                          href="https://ngoisaoexpress.net/#"
+                          class="jeg_search_toggle"
+                        >
+                          <i class="fa fa-search"></i>
+                        </a>
+                        {/* <form
+                          action="https://ngoisaoexpress.net/"
+                          method="get"
+                          class="jeg_search_form"
+                          target="_top"
+                        >
+                          <input
+                            name="s"
+                            class="jeg_search_input"
+                            placeholder="Tìm kiếm..."
+                            type="text"
+                            value=""
+                            autocomplete="off"
+                          />
+                          <button
+                            aria-label="Search Button"
+                            type="submit"
+                            class="jeg_search_button btn"
+                          >
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </form> */}
+                        <div class="jeg_search_result jeg_search_hide with_result">
+                          <div class="search-result-wrapper"></div>
+                          <div class="search-link search-noresult">
+                            Không có kết quả
+                          </div>
+                          <div class="search-link search-all-button">
+                            <i class="fa fa-search"></i> Xem tất cả kết quả
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sticky_blankspace"></div>
+        </div>
       </React.Fragment>
     );
   }
