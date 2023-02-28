@@ -99,7 +99,7 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="wp-block-library-css"
-            href="./css/0b19ad16dc8f7e0ef447ca2c9805a770.css"
+            href="/css/0b19ad16dc8f7e0ef447ca2c9805a770.css"
             type="text/css"
             media="all"
           />
@@ -109,7 +109,7 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="classic-theme-styles-css"
-            href="./css/e2af66c0326a3404733939e1634da495.css"
+            href="/css/e2af66c0326a3404733939e1634da495.css"
             type="text/css"
             media="all"
           />
@@ -119,7 +119,7 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="js_composer_front-css"
-            href="./css/19b0085f6533691d458b076654a21b21.css"
+            href="/css/19b0085f6533691d458b076654a21b21.css"
             type="text/css"
             media="all"
           />
@@ -129,7 +129,7 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="jnews-frontend-css"
-            href="./css/bacdf562bd713188ea9c97d4ef4db582.css"
+            href="/css/bacdf562bd713188ea9c97d4ef4db582.css"
             type="text/css"
             media="all"
           />
@@ -139,7 +139,7 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="jnews-js-composer-css"
-            href="./css/7a0de2af82f057beb7eec3fb83311397.css"
+            href="/css/7a0de2af82f057beb7eec3fb83311397.css"
             type="text/css"
             media="all"
           />
@@ -149,7 +149,7 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="jnews-style-css"
-            href="./css/77c34c0a62fefbbed0a7b3ced25c0666.css"
+            href="/css/77c34c0a62fefbbed0a7b3ced25c0666.css"
             type="text/css"
             media="all"
           />
@@ -159,7 +159,7 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="jnews-darkmode-css"
-            href="./css/43526ca4d0b6871ef16efc69a5fce965.css"
+            href="/css/43526ca4d0b6871ef16efc69a5fce965.css"
             type="text/css"
             media="all"
           />
@@ -169,7 +169,7 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="jnews-scheme-css"
-            href="./css/aeedd786a7252eb0e22dc419e19dc566.css"
+            href="/css/aeedd786a7252eb0e22dc419e19dc566.css"
             type="text/css"
             media="all"
           />
@@ -179,14 +179,14 @@ export default class CustomDocument extends Document {
             as="style"
             rel="stylesheet"
             id="jnews-weather-style-css"
-            href="./css/e905100cf1b5d21de7dfc23eef66fecb.css"
+            href="/css/e905100cf1b5d21de7dfc23eef66fecb.css"
             type="text/css"
             media="all"
           />
 
           <script
             type="text/javascript"
-            src="./js/jquery.min.js"
+            src="/js/jquery.min.js"
             id="jquery-core-js"
           ></script>
 
@@ -209,7 +209,7 @@ export default class CustomDocument extends Document {
             content="https://ngoisaoexpress.net/wp-content/uploads/2022/08/cropped-Icon_NgoiSaoExpress-1-270x270.png"
           />
 
-          <link rel="stylesheet" href="./css/style.css" media="all" />
+          <link rel="stylesheet" href="/css/style.css" media="all" />
           {/* We only want to add the scripts if in production */}
           {isProduction && (
             <Fragment>
@@ -235,27 +235,27 @@ export default class CustomDocument extends Document {
           )}
         </Head>
         <body
-          class="home page-template page-template-template-builder page-template-template-builder-php page page-id-1956 wp-embed-responsive jeg_toggle_light jnews jsc_normal wpb-js-composer js-comp-ver-6.8.0 vc_responsive"
+          className="home page-template page-template-template-builder page-template-template-builder-php page page-id-1956 wp-embed-responsive jeg_toggle_light jnews jsc_normal wpb-js-composer js-comp-ver-6.8.0 vc_responsive"
           cz-shortcut-listen="true"
         >
-          <div class="jeg_ad jeg_ad_top jnews_header_top_ads">
-            <div class="ads-wrapper"></div>
+          <div className="jeg_ad jeg_ad_top jnews_header_top_ads">
+            <div className="ads-wrapper"></div>
           </div>
-          <div class="jeg_viewport">
+          <div className="jeg_viewport">
             <Main />
             <NextScript />
           </div>
-          <div id="jeg_off_canvas" class="normal">
-            <a href="https://ngoisaoexpress.net/#" class="jeg_menu_close">
-              <i class="jegicon-cross"></i>
+          <div id="jeg_off_canvas" className="normal">
+            <a href="https://ngoisaoexpress.net/#" className="jeg_menu_close">
+              <i className="jegicon-cross"></i>
             </a>
-            <div class="jeg_bg_overlay"></div>
+            <div className="jeg_bg_overlay"></div>
           </div>
-          <script
+          {/* <script
             data-optimized="1"
             src="./js/129980acb040f76a70bccde6002a5ef6.js"
             defer=""
-          ></script>
+          ></script> */}
         </body>
       </Html>
     );

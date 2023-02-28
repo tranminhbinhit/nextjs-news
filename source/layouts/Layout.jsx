@@ -70,8 +70,8 @@ const Layout = ({ children, title, description, image, config }) => {
         <Header />
 
         {isMounted && (
-          <div class="jeg_main">
-            <div class="jeg_container">
+          <div className="jeg_main">
+            <div className="jeg_container">
               {children}
             </div>
           </div>

@@ -75,25 +75,25 @@ class Header extends Component {
 
     return (
       <React.Fragment>
-        <div class="jeg_header_wrapper">
-          <div class="jeg_header_instagram_wrapper"></div>
-          <div class="jeg_header normal">
-            <div class="jeg_topbar jeg_container dark">
-              <div class="container">
-                <div class="jeg_nav_row">
-                  <div class="jeg_nav_col jeg_nav_left  jeg_nav_grow">
-                    <div class="item_wrap jeg_nav_alignleft">
-                      <div class="jeg_nav_item jeg_top_date">
+        <div className="jeg_header_wrapper">
+          <div className="jeg_header_instagram_wrapper"></div>
+          <div className="jeg_header normal">
+            <div className="jeg_topbar jeg_container dark">
+              <div className="container">
+                <div className="jeg_nav_row">
+                  <div className="jeg_nav_col jeg_nav_left  jeg_nav_grow">
+                    <div className="item_wrap jeg_nav_alignleft">
+                      <div className="jeg_nav_item jeg_top_date">
                         Thứ Tư, Tháng Hai 22, 2023
                       </div>
                     </div>
                   </div>
-                  <div class="jeg_nav_col jeg_nav_center  jeg_nav_normal">
-                    <div class="item_wrap jeg_nav_aligncenter"></div>
+                  <div className="jeg_nav_col jeg_nav_center  jeg_nav_normal">
+                    <div className="item_wrap jeg_nav_aligncenter"></div>
                   </div>
-                  <div class="jeg_nav_col jeg_nav_right  jeg_nav_normal">
-                    <div class="item_wrap jeg_nav_alignright">
-                      <div class="jeg_nav_item jeg_nav_html">
+                  <div className="jeg_nav_col jeg_nav_right  jeg_nav_normal">
+                    <div className="item_wrap jeg_nav_alignright">
+                      <div className="jeg_nav_item jeg_nav_html">
                         quangcao@ngoisaoexpress.net
                       </div>
                     </div>
@@ -101,25 +101,20 @@ class Header extends Component {
                 </div>
               </div>
             </div>
-            <div class="jeg_midbar jeg_container dark">
-              <div class="container">
-                <div class="jeg_nav_row">
-                  <div class="jeg_nav_col jeg_nav_left jeg_nav_normal">
-                    <div class="item_wrap jeg_nav_alignleft">
-                      <div class="jeg_nav_item jeg_logo jeg_desktop_logo">
-                        <h1 class="site-title">
+            <div className="jeg_midbar jeg_container dark">
+              <div className="container">
+                <div className="jeg_nav_row">
+                  <div className="jeg_nav_col jeg_nav_left jeg_nav_normal">
+                    <div className="item_wrap jeg_nav_alignleft">
+                      <div className="jeg_nav_item jeg_logo jeg_desktop_logo">
+                        <h1 className="site-title">
                           <a
-                            href="https://ngoisaoexpress.net/"
+                            href="/"
                           >
                             <img
-                              class="jeg_logo_img"
-                              src="./images/logo_NgoiSaoExpress.png"
+                              className="jeg_logo_img"
+                              src="/images/logo_NgoiSaoExpress.png"
                               alt="Ngôi Sao Express"
-                              data-light-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
-                              data-light-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
-                              data-dark-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
-                              data-dark-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
-                              data-pin-no-hover="true"
                             />
                             {/* <span>
                               Ngôi Sao Express
@@ -129,22 +124,21 @@ class Header extends Component {
                       </div>
                     </div>
                   </div>
-                  <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
-                    <div class="item_wrap jeg_nav_aligncenter"></div>
+                  <div className="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                    <div className="item_wrap jeg_nav_aligncenter"></div>
                   </div>
-                  <div class="jeg_nav_col jeg_nav_right jeg_nav_grow">
-                    <div class="item_wrap jeg_nav_alignright">
-                      <div class="jeg_nav_item jeg_ad jeg_ad_top jnews_header_ads">
-                        <div class="ads-wrapper">
+                  <div className="jeg_nav_col jeg_nav_right jeg_nav_grow">
+                    <div className="item_wrap jeg_nav_alignright">
+                      <div className="jeg_nav_item jeg_ad jeg_ad_top jnews_header_ads">
+                        <div className="ads-wrapper">
                           <a
                             href="https://www.youtube.com/watch?v=b8xTHR6bNxE"
                             rel="noopener"
-                            class="adlink ads_image"
+                            className="adlink ads_image"
                           >
                             <img
-                              src="./images/Biore_728x90px.jpg"
-                              class=" lazyloaded"
-                              data-src="http://ngoisaoexpress.net/wp-content/uploads/2022/08/Biore_728x90px.jpg"
+                              src="/images/Biore_728x90px.jpg"
+                              className=" lazyloaded"
                               alt="Advertisement"
                               data-pin-no-hover="true"
                             />
@@ -156,87 +150,51 @@ class Header extends Component {
                 </div>
               </div>
             </div>
-            <div class="jeg_bottombar jeg_navbar jeg_container jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_dark">
-              <div class="container">
-                <div class="jeg_nav_row">
-                  <div class="jeg_nav_col jeg_nav_left jeg_nav_grow">
-                    <div class="item_wrap jeg_nav_alignleft">
-                      <div class="jeg_nav_item jeg_main_menu_wrapper">
-                        <div class="jeg_mainmenu_wrap">
+            <div className="jeg_bottombar jeg_navbar jeg_container jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_dark">
+              <div className="container">
+                <div className="jeg_nav_row">
+                  <div className="jeg_nav_col jeg_nav_left jeg_nav_grow">
+                    <div className="item_wrap jeg_nav_alignleft">
+                      <div className="jeg_nav_item jeg_main_menu_wrapper">
+                        <div className="jeg_mainmenu_wrap">
                           <ul
-                            class="jeg_menu jeg_main_menu jeg_menu_style_4 sf-js-enabled sf-arrows"
+                            className="jeg_menu jeg_main_menu jeg_menu_style_4 sf-js-enabled sf-arrows"
                             data-animation="animate"
                           >
                             <li
                               id="menu-item-1963"
-                              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1956 current_page_item menu-item-1963 bgnav"
+                              className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1956 current_page_item menu-item-1963 bgnav"
                               data-item-row="default"
                             >
-                              <a href="https://ngoisaoexpress.net/">
+                              <a href="/">
                                 Trang chủ
                               </a>
                             </li>
                             <li
                               id="menu-item-2000"
-                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
+                              className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
                               data-item-row="default"
                             >
-                              <a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/">
-                                Chuyện làng sao
+                              <a href="/chuyen-muc/chuyen-lang-sao/">
+                                danh muc
                               </a>
                             </li>
                             <li
-                              id="menu-item-2001"
-                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2001 bgnav"
+                              id="menu-item-2000"
+                              className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
                               data-item-row="default"
                             >
-                              <a href="https://ngoisaoexpress.net/category/lam-dep/">
-                                Làm đẹp
+                              <a href="/chitiet">
+                                Chi tiết
                               </a>
                             </li>
                             <li
-                              id="menu-item-2002"
-                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2002 bgnav"
+                              id="menu-item-2000"
+                              className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
                               data-item-row="default"
                             >
-                              <a href="https://ngoisaoexpress.net/category/suc-khoe/">
-                                Sức khoẻ
-                              </a>
-                            </li>
-                            <li
-                              id="menu-item-2003"
-                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2003 bgnav"
-                              data-item-row="default"
-                            >
-                              <a href="https://ngoisaoexpress.net/category/nam-gioi/">
-                                Nam giới
-                              </a>
-                            </li>
-                            <li
-                              id="menu-item-2004"
-                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2004 bgnav"
-                              data-item-row="default"
-                            >
-                              <a href="https://ngoisaoexpress.net/category/phim-nhac/">
-                                Phim nhạc
-                              </a>
-                            </li>
-                            <li
-                              id="menu-item-2005"
-                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005 bgnav"
-                              data-item-row="default"
-                            >
-                              <a href="https://ngoisaoexpress.net/category/nu-gioi/">
-                                Nữ giới
-                              </a>
-                            </li>
-                            <li
-                              id="menu-item-2006"
-                              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2006 bgnav"
-                              data-item-row="default"
-                            >
-                              <a href="https://ngoisaoexpress.net/category/thoi-trang/">
-                                Thời trang
+                              <a href="/tim-kiem?key=11">
+                                tim kiem
                               </a>
                             </li>
                           </ul>
@@ -244,28 +202,28 @@ class Header extends Component {
                       </div>
                     </div>
                   </div>
-                  <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
-                    <div class="item_wrap jeg_nav_aligncenter"></div>
+                  <div className="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                    <div className="item_wrap jeg_nav_aligncenter"></div>
                   </div>
-                  <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
-                    <div class="item_wrap jeg_nav_alignright">
-                      <div class="jeg_nav_item jeg_nav_search">
-                        <div class="jeg_search_wrapper jeg_search_no_expand rounded">
+                  <div className="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                    <div className="item_wrap jeg_nav_alignright">
+                      <div className="jeg_nav_item jeg_nav_search">
+                        <div className="jeg_search_wrapper jeg_search_no_expand rounded">
                           <a
                             href="https://ngoisaoexpress.net/#"
-                            class="jeg_search_toggle"
+                            className="jeg_search_toggle"
                           >
-                            <i class="fa fa-search"></i>
+                            <i className="fa fa-search"></i>
                           </a>
                           {/* <form
                             action="https://ngoisaoexpress.net/"
                             method="get"
-                            class="jeg_search_form"
+                            className="jeg_search_form"
                             target="_top"
                           >
                             <input
                               name="s"
-                              class="jeg_search_input"
+                              className="jeg_search_input"
                               placeholder="Tìm kiếm..."
                               type="text"
                               value=""
@@ -274,18 +232,18 @@ class Header extends Component {
                             <button
                               aria-label="Search Button"
                               type="submit"
-                              class="jeg_search_button btn"
+                              className="jeg_search_button btn"
                             >
-                              <i class="fa fa-search"></i>
+                              <i className="fa fa-search"></i>
                             </button>
                           </form> */}
-                          <div class="jeg_search_result jeg_search_hide with_result">
-                            <div class="search-result-wrapper"></div>
-                            <div class="search-link search-noresult">
+                          <div className="jeg_search_result jeg_search_hide with_result">
+                            <div className="search-result-wrapper"></div>
+                            <div className="search-link search-noresult">
                               Không có kết quả
                             </div>
-                            <div class="search-link search-all-button">
-                              <i class="fa fa-search"></i> Xem tất cả kết quả
+                            <div className="search-link search-all-button">
+                              <i className="fa fa-search"></i> Xem tất cả kết quả
                             </div>
                           </div>
                         </div>
@@ -297,43 +255,37 @@ class Header extends Component {
             </div>
           </div>
         </div>
-        <div class="jeg_header_sticky">
-          <div class="sticky_blankspace"></div>
-          <div class="jeg_header normal">
-            <div class="jeg_container">
+        <div className="jeg_header_sticky">
+          <div className="jeg_header normal">
+            <div className="jeg_container">
               <div
                 data-mode="scroll"
-                class="jeg_stickybar jeg_navbar jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_dark"
+                className="jeg_stickybar jeg_navbar jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_dark"
               >
-                <div class="container">
-                  <div class="jeg_nav_row">
-                    <div class="jeg_nav_col jeg_nav_left jeg_nav_grow">
-                      <div class="item_wrap jeg_nav_alignleft">
-                        <div class="jeg_nav_item jeg_logo">
-                          <div class="site-title">
+                <div className="container">
+                  <div className="jeg_nav_row">
+                    <div className="jeg_nav_col jeg_nav_left jeg_nav_grow">
+                      <div className="item_wrap jeg_nav_alignleft">
+                        <div className="jeg_nav_item jeg_logo">
+                          <div className="site-title">
                             <a href="https://ngoisaoexpress.net/">
                               <img
-                                class="jeg_logo_img"
-                                src="./images/logo_NgoiSaoExpress.png"
+                                className="jeg_logo_img"
+                                src="/images/logo_NgoiSaoExpress.png"
                                 alt="Ngôi Sao Express"
-                                data-light-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
-                                data-light-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
-                                data-dark-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
-                                data-dark-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
-                                data-pin-no-hover="true"
                               />{" "}
                             </a>
                           </div>
                         </div>
-                        <div class="jeg_nav_item jeg_main_menu_wrapper">
-                          <div class="jeg_mainmenu_wrap">
+                        <div className="jeg_nav_item jeg_main_menu_wrapper">
+                          <div className="jeg_mainmenu_wrap">
                             <ul
-                              class="jeg_menu jeg_main_menu jeg_menu_style_4 sf-js-enabled sf-arrows"
+                              className="jeg_menu jeg_main_menu jeg_menu_style_4 sf-js-enabled sf-arrows"
                               data-animation="animate"
                             >
                               <li
                                 id="menu-item-1963"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1956 current_page_item menu-item-1963 bgnav"
+                                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1956 current_page_item menu-item-1963 bgnav"
                                 data-item-row="default"
                               >
                                 <a href="https://ngoisaoexpress.net/">
@@ -342,7 +294,7 @@ class Header extends Component {
                               </li>
                               <li
                                 id="menu-item-2000"
-                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
+                                className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
                                 data-item-row="default"
                               >
                                 <a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/">
@@ -351,7 +303,7 @@ class Header extends Component {
                               </li>
                               <li
                                 id="menu-item-2001"
-                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2001 bgnav"
+                                className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2001 bgnav"
                                 data-item-row="default"
                               >
                                 <a href="https://ngoisaoexpress.net/category/lam-dep/">
@@ -360,7 +312,7 @@ class Header extends Component {
                               </li>
                               <li
                                 id="menu-item-2002"
-                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2002 bgnav"
+                                className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2002 bgnav"
                                 data-item-row="default"
                               >
                                 <a href="https://ngoisaoexpress.net/category/suc-khoe/">
@@ -369,7 +321,7 @@ class Header extends Component {
                               </li>
                               <li
                                 id="menu-item-2003"
-                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2003 bgnav"
+                                className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2003 bgnav"
                                 data-item-row="default"
                               >
                                 <a href="https://ngoisaoexpress.net/category/nam-gioi/">
@@ -378,7 +330,7 @@ class Header extends Component {
                               </li>
                               <li
                                 id="menu-item-2004"
-                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2004 bgnav"
+                                className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2004 bgnav"
                                 data-item-row="default"
                               >
                                 <a href="https://ngoisaoexpress.net/category/phim-nhac/">
@@ -387,7 +339,7 @@ class Header extends Component {
                               </li>
                               <li
                                 id="menu-item-2005"
-                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005 bgnav"
+                                className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005 bgnav"
                                 data-item-row="default"
                               >
                                 <a href="https://ngoisaoexpress.net/category/nu-gioi/">
@@ -396,7 +348,7 @@ class Header extends Component {
                               </li>
                               <li
                                 id="menu-item-2006"
-                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2006 bgnav"
+                                className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2006 bgnav"
                                 data-item-row="default"
                               >
                                 <a href="https://ngoisaoexpress.net/category/thoi-trang/">
@@ -408,27 +360,27 @@ class Header extends Component {
                         </div>
                       </div>
                     </div>
-                    <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
-                      <div class="item_wrap jeg_nav_aligncenter"></div>
+                    <div className="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                      <div className="item_wrap jeg_nav_aligncenter"></div>
                     </div>
-                    <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
-                      <div class="item_wrap jeg_nav_alignright">
-                        <div class="jeg_nav_item jeg_search_wrapper search_icon jeg_search_popup_expand">
+                    <div className="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                      <div className="item_wrap jeg_nav_alignright">
+                        <div className="jeg_nav_item jeg_search_wrapper search_icon jeg_search_popup_expand">
                           <a
                             href="https://ngoisaoexpress.net/#"
-                            class="jeg_search_toggle"
+                            className="jeg_search_toggle"
                           >
-                            <i class="fa fa-search"></i>
+                            <i className="fa fa-search"></i>
                           </a>
                           {/* <form
                             action="https://ngoisaoexpress.net/"
                             method="get"
-                            class="jeg_search_form"
+                            className="jeg_search_form"
                             target="_top"
                           >
                             <input
                               name="s"
-                              class="jeg_search_input"
+                              className="jeg_search_input"
                               placeholder="Tìm kiếm..."
                               type="text"
                               value=""
@@ -437,18 +389,18 @@ class Header extends Component {
                             <button
                               aria-label="Search Button"
                               type="submit"
-                              class="jeg_search_button btn"
+                              className="jeg_search_button btn"
                             >
-                              <i class="fa fa-search"></i>
+                              <i className="fa fa-search"></i>
                             </button>
                           </form> */}
-                          <div class="jeg_search_result jeg_search_hide with_result">
-                            <div class="search-result-wrapper"></div>
-                            <div class="search-link search-noresult">
+                          <div className="jeg_search_result jeg_search_hide with_result">
+                            <div className="search-result-wrapper"></div>
+                            <div className="search-link search-noresult">
                               Không có kết quả
                             </div>
-                            <div class="search-link search-all-button">
-                              <i class="fa fa-search"></i> Xem tất cả kết quả
+                            <div className="search-link search-all-button">
+                              <i className="fa fa-search"></i> Xem tất cả kết quả
                             </div>
                           </div>
                         </div>
@@ -460,61 +412,56 @@ class Header extends Component {
             </div>
           </div>
         </div>
-        <div class="jeg_navbar_mobile_wrapper">
-          <div class="jeg_navbar_mobile" data-mode="scroll">
-            <div class="jeg_mobile_bottombar jeg_mobile_midbar jeg_container dark">
-              <div class="container">
-                <div class="jeg_nav_row">
-                  <div class="jeg_nav_col jeg_nav_left jeg_nav_normal">
-                    <div class="item_wrap jeg_nav_alignleft">
-                      <div class="jeg_nav_item">
+        <div className="jeg_navbar_mobile_wrapper">
+          <div className="jeg_navbar_mobile" data-mode="scroll">
+            <div className="jeg_mobile_bottombar jeg_mobile_midbar jeg_container dark">
+              <div className="container">
+                <div className="jeg_nav_row">
+                  <div className="jeg_nav_col jeg_nav_left jeg_nav_normal">
+                    <div className="item_wrap jeg_nav_alignleft">
+                      <div className="jeg_nav_item">
                         <a
                           href="https://ngoisaoexpress.net/#"
-                          class="toggle_btn jeg_mobile_toggle"
+                          className="toggle_btn jeg_mobile_toggle"
                         >
-                          <i class="fa fa-bars"></i>
+                          <i className="fa fa-bars"></i>
                         </a>
                       </div>
                     </div>
                   </div>
-                  <div class="jeg_nav_col jeg_nav_center jeg_nav_grow">
-                    <div class="item_wrap jeg_nav_aligncenter">
-                      <div class="jeg_nav_item jeg_mobile_logo">
-                        <div class="site-title">
+                  <div className="jeg_nav_col jeg_nav_center jeg_nav_grow">
+                    <div className="item_wrap jeg_nav_aligncenter">
+                      <div className="jeg_nav_item jeg_mobile_logo">
+                        <div className="site-title">
                           <a href="https://ngoisaoexpress.net/">
                             <img
-                              class="jeg_logo_img"
-                              src="./images/logo_NgoiSaoExpress.png"
+                              className="jeg_logo_img"
+                              src="/images/logo_NgoiSaoExpress.png"
                               alt="Ngôi Sao Express"
-                              data-light-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
-                              data-light-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
-                              data-dark-src="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png"
-                              data-dark-srcset="http://ngoisaoexpress.net/wp-content/uploads/2022/09/logo_NgoiSaoExpress.png 1x,  2x"
-                              data-pin-no-hover="true"
                             />{" "}
                           </a>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
-                    <div class="item_wrap jeg_nav_alignright">
-                      <div class="jeg_nav_item jeg_search_wrapper jeg_search_popup_expand">
+                  <div className="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                    <div className="item_wrap jeg_nav_alignright">
+                      <div className="jeg_nav_item jeg_search_wrapper jeg_search_popup_expand">
                         <a
                           href="https://ngoisaoexpress.net/#"
-                          class="jeg_search_toggle"
+                          className="jeg_search_toggle"
                         >
-                          <i class="fa fa-search"></i>
+                          <i className="fa fa-search"></i>
                         </a>
                         {/* <form
                           action="https://ngoisaoexpress.net/"
                           method="get"
-                          class="jeg_search_form"
+                          className="jeg_search_form"
                           target="_top"
                         >
                           <input
                             name="s"
-                            class="jeg_search_input"
+                            className="jeg_search_input"
                             placeholder="Tìm kiếm..."
                             type="text"
                             value=""
@@ -523,18 +470,18 @@ class Header extends Component {
                           <button
                             aria-label="Search Button"
                             type="submit"
-                            class="jeg_search_button btn"
+                            className="jeg_search_button btn"
                           >
-                            <i class="fa fa-search"></i>
+                            <i className="fa fa-search"></i>
                           </button>
                         </form> */}
-                        <div class="jeg_search_result jeg_search_hide with_result">
-                          <div class="search-result-wrapper"></div>
-                          <div class="search-link search-noresult">
+                        <div className="jeg_search_result jeg_search_hide with_result">
+                          <div className="search-result-wrapper"></div>
+                          <div className="search-link search-noresult">
                             Không có kết quả
                           </div>
-                          <div class="search-link search-all-button">
-                            <i class="fa fa-search"></i> Xem tất cả kết quả
+                          <div className="search-link search-all-button">
+                            <i className="fa fa-search"></i> Xem tất cả kết quả
                           </div>
                         </div>
                       </div>
@@ -544,7 +491,6 @@ class Header extends Component {
               </div>
             </div>
           </div>
-          <div class="sticky_blankspace"></div>
         </div>
       </React.Fragment>
     );
