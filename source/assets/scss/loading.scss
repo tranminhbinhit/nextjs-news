@@ -1,0 +1,137 @@
+.now-loading {
+	background-color: black;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 9999;
+	margin-top: 0;
+	top: 0;
+	left: 0;
+	opacity: .2;
+  
+	.loading-center {
+	  width: 100%;
+	  height: 100%;
+	  position: relative;
+	}
+  
+	.loading-center-absolute {
+	  position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  height: 60px;
+	  width: 60px;
+	  margin-top: -30px;
+	  margin-left: -30px;
+	  animation: now-loading 1s infinite;
+	}
+  
+	.object {
+	  width: 20px;
+	  height: 20px;
+	  background-color: #FFF;
+	  float: left;
+	  border-radius: 50%;
+	  margin-right: 20px;
+	  margin-bottom: 20px;
+	}
+  
+	.object:nth-child(2n+0) {
+	  margin-right: 0
+	}
+  
+	.object_one {
+	  animation: now_object_one 1s infinite
+	}
+  
+	.object_two {
+	  animation: now_object_two 1s infinite
+	}
+  
+	.object_three {
+	  animation: now_object_three 1s infinite
+	}
+  
+	.object_four {
+	  animation: now_object_four 1s infinite
+	}
+  
+  
+  }
+  
+  .now-loading.now-loading-block {
+  
+	position: absolute;
+  
+  }
+  
+  
+  @-webkit-keyframes now-loading {
+	100% {
+	  -webkit-transform: rotate(360deg);
+	  transform: rotate(360deg)
+	}
+  }
+  
+  @keyframes now-loading {
+	100% {
+	  -webkit-transform: rotate(360deg);
+	  transform: rotate(360deg)
+	}
+  }
+  
+  @-webkit-keyframes now_object_one {
+	50% {
+	  -webkit-transform: translate(20px, 20px);
+	  transform: translate(20px, 20px)
+	}
+  }
+  
+  @keyframes now_object_one {
+	50% {
+	  -webkit-transform: translate(20px, 20px);
+	  transform: translate(20px, 20px)
+	}
+  }
+  
+  @-webkit-keyframes now_object_two {
+	50% {
+	  -webkit-transform: translate(-20px, 20px);
+	  transform: translate(-20px, 20px)
+	}
+  }
+  
+  @keyframes now_object_two {
+	50% {
+	  -webkit-transform: translate(-20px, 20px);
+	  transform: translate(-20px, 20px)
+	}
+  }
+  
+  @-webkit-keyframes now_object_three {
+	50% {
+	  -webkit-transform: translate(20px, -20px);
+	  transform: translate(20px, -20px)
+	}
+  }
+  
+  @keyframes now_object_three {
+	50% {
+	  -webkit-transform: translate(20px, -20px);
+	  transform: translate(20px, -20px)
+	}
+  }
+  
+  @-webkit-keyframes now_object_four {
+	50% {
+	  -webkit-transform: translate(-20px, -20px);
+	  transform: translate(-20px, -20px)
+	}
+  }
+  
+  @keyframes now_object_four {
+	50% {
+	  -webkit-transform: translate(-20px, -20px);
+	  transform: translate(-20px, -20px)
+	}
+  }

@@ -1,0 +1,76 @@
+
+/* Loadding product*/
+@keyframes placeHolderShimmer {
+  0% {
+      background-position: -468px 0
+  }
+
+  100% {
+      background-position: 468px 0
+  }
+}
+
+.enow-loading-box {
+  z-index: 2;
+  display: none;
+  overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
+  
+  background-color: #FFFFFF;
+
+  .box-loading {
+    width: 20%;
+    padding: 8px;
+    float: left;
+    height: 235px;
+    background-color: white;
+    margin-bottom: 6px;
+  }
+
+  [class*="box-line"] {
+    height: 12px;
+    width: 400px;
+    background: #cccccc;
+    margin-bottom: 13px;
+    display: block;
+    float: left;
+  }
+
+  [class*="box-line"],
+  .box-thumbnail {
+    animation: timeline;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px auto;
+    animation-name: placeHolderShimmer;
+  }
+
+  .box-thumbnail {
+    height: 137px;
+    width: 100%;
+    float: left;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .box-line-df {
+    width: 60%;
+  }
+
+  .box-line-lgx {
+    width: 80%;
+  }
+
+  .box-line-lg {
+    width: 50%;
+  }
+
+}
+
+.enow-loading-box.show {
+  display:block !important;
+}
