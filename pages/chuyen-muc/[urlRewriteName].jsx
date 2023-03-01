@@ -7,6 +7,7 @@ import FutureTitle from "../../source/components/BoxSite/FutureTitle";
 import { getLinkUrl, isEmptyObject } from "../../source/utils/utils";
 import LeftBarNews from "../../source/components/News/LeftBarNews";
 import NewsItem from "../../source/components/News/NewsItem";
+import NewsItemMore from "../../source/components/News/NewsItemMore";
 import EmptyData from "../../source/components/BoxSite/EmptyData";
 import { COMMON_CONST } from "../../source/constants/constants";
 import { EnumRoutingPage } from "../../source/constants/enum";
@@ -23,8 +24,9 @@ export async function getServerSideProps(context) {
 
   const listNews = await getNewsList({
     name_rewrite: urlRewriteName,
-    p: p,
-    ps: COMMON_CONST.PageSizeNews,
+    PageTypeId: 2,
+    PageSize: COMMON_CONST.PageSizeNews,
+    PageNumber: p,
   });
 
   return {
@@ -50,6 +52,7 @@ const NewsCategory = (props) => {
     const link = `${urlCategoryNews}?p=${event.selected + 1}`;
     router.push(link);
   };
+  console.log(listNews, 'listNews');
 
   return (
     <Layout config={config}>
@@ -139,57 +142,8 @@ const NewsCategory = (props) => {
                     <div className="jeg_postblock_5 jeg_postblock jeg_module_hook jeg_pagination_nav_1 jeg_col_2o3 jnews_module_6192_1_63fcb5130f09c" data-unique="jnews_module_6192_1_63fcb5130f09c">
                       <div className="jeg_block_container">
                         <div className="jeg_posts jeg_load_more_flag">
-                          <article className="jeg_post jeg_pl_lg_2 format-standard">
-                            <div className="jeg_thumb">
-                              <a href="https://ngoisaoexpress.net/diva-thanh-lam-tu-hao-khi-con-trai-la-nghe-si-piano-ve-viet-nam-bieu-dien/">
-                                <div className="thumbnail-container animate-lazy  size-715"><img width="350" height="250" src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/dangquang1-ngoisaovn-w1200-h720-1-350x250.jpg" className="attachment-jnews-350x250 size-jnews-350x250 wp-post-image lazyautosizes lazyloaded" alt="Diva Thanh Lam tự hào khi con trai là nghệ sĩ piano về Việt Nam biểu diễn" decoding="async" loading="lazy" sizes="360px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/dangquang1-ngoisaovn-w1200-h720-1-350x250.jpg" /></div>
-                              </a>
-                              <div className="jeg_post_category">
-                                <span><a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/" className="category-chuyen-lang-sao">Chuyện làng sao</a></span>
-                              </div>
-                            </div>
-                            <div className="jeg_postblock_content">
-                              <h3 className="jeg_post_title">
-                                <a href="https://ngoisaoexpress.net/diva-thanh-lam-tu-hao-khi-con-trai-la-nghe-si-piano-ve-viet-nam-bieu-dien/">Diva Thanh Lam tự hào khi con trai là nghệ sĩ piano về Việt Nam biểu diễn</a>
-                              </h3>
-                              <div className="jeg_post_meta">
-                                <div className="jeg_meta_date"><a href="https://ngoisaoexpress.net/diva-thanh-lam-tu-hao-khi-con-trai-la-nghe-si-piano-ve-viet-nam-bieu-dien/"><i className="fa fa-clock-o"></i> Tháng Hai 26, 2023</a></div>
-                              </div>
-                              <div className="jeg_post_excerpt">
-                                <p>Vào đầu tháng 10, nghệ sĩ piano Nguyễn Đăng Quang - con trai Diva Thanh Lam sẽ biểu diễn tại...</p>
-                                <a href="https://ngoisaoexpress.net/diva-thanh-lam-tu-hao-khi-con-trai-la-nghe-si-piano-ve-viet-nam-bieu-dien/" className="jeg_readmore">Xem thêm</a>
-                              </div>
-                            </div>
-                          </article>
-
-                          <div className="jeg_ad jeg_ad_module jnews_inline_module_ads">
-                            <div className="ads-wrapper"><a href="#" target="_blank" rel="nofollow noopener" className="adlink ads_image inline_module">
-                              <img src="https://ngoisaoexpress.net/wp-content/themes/jnews/assets/img/jeg-empty.png" className="lazyload" data-src="http://ngoisaoexpress.net/wp-content/uploads/2022/08/Biore_728x90px.jpg.webp" alt="" data-pin-no-hover="true" />
-                            </a>
-                            </div>
-                          </div>
-                          <article className="jeg_post jeg_pl_lg_2 format-standard">
-                            <div className="jeg_thumb">
-                              <a href="https://ngoisaoexpress.net/ban-than-lo-lang-vi-diep-lam-anh-song-khep-kin-nu-dien-vien-tu-nhu-dung-bat-on-nua/">
-                                <div className="thumbnail-container animate-lazy  size-715"><img width="350" height="250" src="https://ngoisaoexpress.net/wp-content/themes/jnews/assets/img/jeg-empty.png" className="attachment-jnews-350x250 size-jnews-350x250 lazyload wp-post-image" alt="Bạn thân lo lắng vì Diệp Lâm Anh sống khép kín, nữ diễn viên tự nhủ: ‘Đừng bất ổn nữa’" decoding="async" loading="lazy" sizes="(max-width: 350px) 100vw, 350px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/dvkjkfjnkflblkbf-ngoisaovn-w1200-h720-1-350x250.jpg" data-expand="700" title="Bạn thân lo lắng vì Diệp Lâm Anh sống khép kín, nữ diễn viên tự nhủ: 'Đừng bất ổn nữa' 10" /></div>
-                              </a>
-                              <div className="jeg_post_category">
-                                <span><a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/" className="category-chuyen-lang-sao">Chuyện làng sao</a></span>
-                              </div>
-                            </div>
-                            <div className="jeg_postblock_content">
-                              <h3 className="jeg_post_title">
-                                <a href="https://ngoisaoexpress.net/ban-than-lo-lang-vi-diep-lam-anh-song-khep-kin-nu-dien-vien-tu-nhu-dung-bat-on-nua/">Bạn thân lo lắng vì Diệp Lâm Anh sống khép kín, nữ diễn viên tự nhủ: ‘Đừng bất ổn nữa’</a>
-                              </h3>
-                              <div className="jeg_post_meta">
-                                <div className="jeg_meta_date"><a href="https://ngoisaoexpress.net/ban-than-lo-lang-vi-diep-lam-anh-song-khep-kin-nu-dien-vien-tu-nhu-dung-bat-on-nua/"><i className="fa fa-clock-o"></i> Tháng Hai 12, 2023</a></div>
-                              </div>
-                              <div className="jeg_post_excerpt">
-                                <p>Diệp Lâm Anh khiến bạn thân lo lắng vì hiện giờ sống khép kín, quá ít chia sẻ.</p>
-                                <a href="https://ngoisaoexpress.net/ban-than-lo-lang-vi-diep-lam-anh-song-khep-kin-nu-dien-vien-tu-nhu-dung-bat-on-nua/" className="jeg_readmore">Xem thêm</a>
-                              </div>
-                            </div>
-                          </article>
+                          {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemMore key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
+                          <EmptyData listData={listNews} />
                         </div>
                         <div className="module-overlay">
                           <div className="preloader_type preloader_dot">

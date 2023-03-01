@@ -10,6 +10,8 @@ import PaginatePage from "../source/components/BoxSite/PaginatePage";
 import { useRouter } from "next/router";
 import { EnumRoutingPage } from "../source/constants/enum";
 import { COMMON_CONST } from '../source/constants/constants';
+import NewsItem from "../source/components/News/NewsItem";
+import { getNewsList } from "../source/service/newsService";
 
 export async function getServerSideProps(context) {
   const { query, res } = context;
@@ -18,15 +20,16 @@ export async function getServerSideProps(context) {
     'public, s-maxage=10, stale-while-revalidate=59'
   );
   const { key, p = 1 } = query;
-  const listProduct = await getProductSearch({
-    search_text: key,
-    p: p,
-    ps: COMMON_CONST.PageSize,
+  const listNews = await getNewsList({
+    PageTypeId: 2,
+    PageSize: COMMON_CONST.PageSizeNews,
+    PageNumber: p,
+    SearchText: key
   });
 
   return {
     props: {
-      listProduct,
+      listNews,
       keySearch: key,
       pageNumber: p,
     },
@@ -34,7 +37,7 @@ export async function getServerSideProps(context) {
 }
 
 const SearchProduct = (props) => {
-  const { listProduct, keySearch, config, pageNumber } = props;
+  const { listNews, keySearch, config, pageNumber } = props;
 
   const router = useRouter();
   const handlePageClick = (event) => {
@@ -49,7 +52,7 @@ const SearchProduct = (props) => {
     },
   ];
 
-  const totalRows = !isEmptyObject(listProduct) ? listProduct[0].TotalRows : 0;
+  const totalRows = !isEmptyObject(listNews) ? listNews[0].TotalRows : 0;
 
   return (
     <Layout title={`Tìm kiếm ${keySearch}`} config={config}>
@@ -95,24 +98,8 @@ const SearchProduct = (props) => {
                       <div className="jeg_postblock_3 jeg_postblock jeg_col_2o3">
                         <div className="jeg_block_container">
                           <div className="jeg_posts jeg_load_more_flag">
-                            <article className="jeg_post jeg_pl_md_2 format-standard">
-                              <div className="jeg_thumb">
-                                <a href="https://ngoisaoexpress.net/su-quyen-ru-cua-bom-sex-megan-fox-the-hien-qua-tung-trang-phuc-vay-xe-ta-ho-bao-va-hon-the-nua/">
-                                  <div className="thumbnail-container animate-lazy  size-715"><img width="350" height="250" src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/0056me1-ngoisaovn-w1200-h720-1-350x250.jpg" className="attachment-jnews-350x250 size-jnews-350x250 wp-post-image lazyautosizes lazyloaded" alt="Sự quyến rũ của ‘bom sex’ Megan Fox thể hiện qua từng trang phục: váy xẻ tà, hở bạo và hơn thế nữa" decoding="async" loading="lazy" sizes="260px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/0056me1-ngoisaovn-w1200-h720-1-350x250.jpg" /></div>
-                                </a>
-                              </div>
-                              <div className="jeg_postblock_content">
-                                <h3 className="jeg_post_title">
-                                  <a href="https://ngoisaoexpress.net/su-quyen-ru-cua-bom-sex-megan-fox-the-hien-qua-tung-trang-phuc-vay-xe-ta-ho-bao-va-hon-the-nua/">Sự quyến rũ của ‘bom sex’ Megan Fox thể hiện qua từng trang phục: váy xẻ tà, hở bạo và hơn thế nữa</a>
-                                </h3>
-                                <div className="jeg_post_meta">
-                                  <div className="jeg_meta_date"><a href="https://ngoisaoexpress.net/su-quyen-ru-cua-bom-sex-megan-fox-the-hien-qua-tung-trang-phuc-vay-xe-ta-ho-bao-va-hon-the-nua/"><i className="fa fa-clock-o"></i> Tháng Hai 27, 2023</a></div>
-                                </div>
-                                <div className="jeg_post_excerpt">
-                                  <p>Là nữ diễn viên điện ảnh kiêm người mẫu nổi tiếng, Megan Fox luôn khẳng định vị thế của mình ...</p>
-                                </div>
-                              </div>
-                            </article>
+                            {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItem key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
+                            <EmptyData listData={listNews} />
                           </div>
                         </div>
                       </div>
@@ -146,7 +133,7 @@ const SearchProduct = (props) => {
                             <article className="jeg_post jeg_pl_sm format-standard">
                               <div className="jeg_thumb">
                                 <a href="https://ngoisaoexpress.net/phim-cau-ut-nha-tai-phiet-bi-chi-trich-vi-chinh-sua-da-qua-da-cho-song-joong-ki/">
-                                  <div className="thumbnail-container animate-lazy  size-715"><img width="120" height="86" src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/saong-joong-ki-ngoisaovn-w1200-h720-120x86.jpg" className="attachment-jnews-120x86 size-jnews-120x86 wp-post-image lazyautosizes lazyloaded" alt="Phim ‘Cậu út nhà tài phiệt’ bị chỉ trích vì chỉnh sửa da quá đà cho Song Joong Ki" decoding="async" loading="lazy" sizes="120px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/saong-joong-ki-ngoisaovn-w1200-h720-120x86.jpg"/></div>
+                                  <div className="thumbnail-container animate-lazy  size-715"><img width="120" height="86" src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/saong-joong-ki-ngoisaovn-w1200-h720-120x86.jpg" className="attachment-jnews-120x86 size-jnews-120x86 wp-post-image lazyautosizes lazyloaded" alt="Phim ‘Cậu út nhà tài phiệt’ bị chỉ trích vì chỉnh sửa da quá đà cho Song Joong Ki" decoding="async" loading="lazy" sizes="120px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/saong-joong-ki-ngoisaovn-w1200-h720-120x86.jpg" /></div>
                                 </a>
                               </div>
                               <div className="jeg_postblock_content">

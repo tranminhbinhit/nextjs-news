@@ -262,7 +262,7 @@ export function getLinkUrl(typePage, nameRewrite = "", id = 0) {
       result = `/san-pham/${nameRewrite}-p${id}`;
       break;
     case EnumRoutingPage.NEWS.id:
-      result = `/tin-tuc/${nameRewrite}`;
+      result = `/${nameRewrite}`;
       break;
     case EnumRoutingPage.CATEGORY_NEWS.id:
       result = `/chuyen-muc/${nameRewrite}`;

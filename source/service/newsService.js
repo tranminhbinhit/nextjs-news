@@ -3,7 +3,21 @@ import { isEmpty, isEmptyObject, isSuccess } from "../utils/utils";
 
 export async function getNewsList(params) {
   var result = await requestEnow.postEnow("/web-c/crawler-search", params);
-  return isSuccess(result) ? result.result : [];
+  let resultData = {};
+  if (isSuccess(result)) {
+    resultData = result.Data;
+    if (!isEmptyObject(resultData)) {
+      resultData = resultData.map(m => {
+        return {
+          ...m,
+          ValueData: JSON.parse(m.ValueData),
+          SeoData: JSON.parse(m.SeoData)
+        }
+      });
+    }
+  }
+  console.log(resultData, 'result');
+  return resultData;
 }
 
 export async function getNewsListRelate(params) {
@@ -14,9 +28,9 @@ export async function getNewsListRelate(params) {
 export async function getNewsDetail(params) {
   var result = await requestEnow.postEnow("/web-c/crawler-detail", params);
   let resultData = {};
-  if(isSuccess(result)){
+  if (isSuccess(result)) {
     resultData = result.Data;
-    if(!isEmptyObject(resultData)){
+    if (!isEmptyObject(resultData)) {
       resultData = {
         ...resultData,
         ValueData: JSON.parse(resultData.ValueData),
