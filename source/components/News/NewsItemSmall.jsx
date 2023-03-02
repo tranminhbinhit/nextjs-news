@@ -1,46 +1,51 @@
 import Link from "next/link";
 import React from "react";
 import { EnumRoutingPage } from "../../constants/enum";
-import { formatJustDate, formatJustMonth, getImageCdn, getLinkUrl } from "../../utils/utils";
+import { getImage, formatDateTimeView, getLinkUrl } from "../../utils/utils";
 /* eslint-disable */
 const NewsItem = ({ newsItem }) => {
-  const { NewsName, NewsImage, NewsUrl, NewsDescription, CreatedDate, NewsId } =
+  const { ValueData, SeoData, CreatedDate } =
     newsItem || {};
+  const { SeoAttrImage: NewsImage, SeoAttrContentDescription: NewsDescription } =
+    SeoData || {};
+  const { TextTitle: NewsName, NameRewrite: NewsUrl } =
+    ValueData || {};
+  const linkNewsDetail = getLinkUrl(EnumRoutingPage.NEWS.id, NewsUrl);
   return (
-    <div className="col post-item">
-      <div className="col-inner">
-        <Link href={getLinkUrl(EnumRoutingPage.NEWS.id, NewsUrl, NewsId)}>
-          <a className="plain">
-            <div className="box box-vertical box-text-bottom box-blog-post has-hover">
-              <div className="box-image">
-                <div className="image-cover">
-                  <img
-                    width="300"
-                    height="188"
-                    src={getImageCdn(NewsImage)}
-                    alt={NewsName}
-                  />
-                </div>
-              </div>
-              <div className="box-text text-left">
-                <div className="box-text-inner blog-post-inner">
-                  <h5 className="post-title is-large ">{NewsName}</h5>
-                  <div className="is-divider" />
-                  <p className="from_the_blog_excerpt ">{NewsDescription}</p>
-                </div>
-              </div>
-              <div className="badge absolute top post-date badge-outline">
-                <div className="badge-inner">
-                  <span className="post-date-day">{formatJustDate(CreatedDate)}</span>
-                  <br />
-                  <span className="post-date-month is-xsmall">Th {formatJustMonth(CreatedDate)}</span>
-                </div>
-              </div>
-            </div>
-          </a>
-        </Link>
+    <article className="jeg_post jeg_pl_sm format-standard">
+      <div className="jeg_thumb">
+        <a href="https://ngoisaoexpress.net/phim-cau-ut-nha-tai-phiet-bi-chi-trich-vi-chinh-sua-da-qua-da-cho-song-joong-ki/">
+          <div className="thumbnail-container animate-lazy  size-715">
+            <img width="120" height="86"
+              src={getImage(NewsImage)}
+              className="attachment-jnews-120x86 size-jnews-120x86 wp-post-image lazyautosizes lazyloaded"
+              alt={NewsName}
+              decoding="async"
+              loading="lazy"
+              sizes="120px"
+              title={NewsName} />
+          </div>
+        </a>
       </div>
-    </div>
+      <div className="jeg_postblock_content">
+        <h3 className="jeg_post_title">
+          <Link href={linkNewsDetail}>
+            <a>
+              {NewsName}
+            </a>
+          </Link>
+        </h3>
+        <div className="jeg_post_meta">
+          <div className="jeg_meta_date">
+            <Link href={linkNewsDetail}>
+              <a>
+                <i className="fa fa-clock-o"></i> {formatDateTimeView(CreatedDate)}
+              </a>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </article>
   );
 };
 

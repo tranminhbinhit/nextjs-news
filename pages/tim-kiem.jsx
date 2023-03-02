@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { EnumRoutingPage } from "../source/constants/enum";
 import { COMMON_CONST } from '../source/constants/constants';
 import NewsItem from "../source/components/News/NewsItem";
+import NewsItemSmall from "../source/components/News/NewsItemSmall";
 import { getNewsList } from "../source/service/newsService";
 
 export async function getServerSideProps(context) {
@@ -118,33 +119,30 @@ const SearchProduct = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <div className="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-3">
+                    {/* <div className="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-3">
                       <div className="jeg_ad jeg_ad_module jnews_module_6160_1_63fcc495ea89e">
-                        <div className="ads-wrapper"><a href="https://tiki.vn/thuong-hieu/lipton.html?fbclid=IwAR3m7pCRgy4pvYs9Agc0W-ORasr2LWy_lNZgPmzyb15LEF8SOgaN31_QbTU" target="_blank" rel="nofollow noopener" className="adlink ads_image">
-                          <img src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg" className=" lazyloaded" data-src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg" alt="" data-pin-no-hover="true" />
-                        </a>
+                        <div className="ads-wrapper">
+                          <a
+                            href="https://tiki.vn/thuong-hieu/lipton.html?fbclid=IwAR3m7pCRgy4pvYs9Agc0W-ORasr2LWy_lNZgPmzyb15LEF8SOgaN31_QbTU"
+                            target="_blank"
+                            rel="nofollow noopener"
+                            className="adlink ads_image">
+                            <img
+                              src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg"
+                              className=" lazyloaded"
+                              data-src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg"
+                              alt=""
+                              data-pin-no-hover="true" />
+                          </a>
                         </div>
                       </div>
-                    </div>
-                    <div className="widget widget_jnews_module_block_21" id="jnews_module_block_21-2">
+                    </div> */}
+                    <div className="widget widget_jnews_module_block_21">
                       <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6160_2_63fcc495eb2db  jeg_pb_boxed normal" data-unique="jnews_module_6160_2_63fcc495eb2db">
                         <div className="jeg_block_container">
                           <div className="jeg_posts jeg_load_more_flag">
-                            <article className="jeg_post jeg_pl_sm format-standard">
-                              <div className="jeg_thumb">
-                                <a href="https://ngoisaoexpress.net/phim-cau-ut-nha-tai-phiet-bi-chi-trich-vi-chinh-sua-da-qua-da-cho-song-joong-ki/">
-                                  <div className="thumbnail-container animate-lazy  size-715"><img width="120" height="86" src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/saong-joong-ki-ngoisaovn-w1200-h720-120x86.jpg" className="attachment-jnews-120x86 size-jnews-120x86 wp-post-image lazyautosizes lazyloaded" alt="Phim ‘Cậu út nhà tài phiệt’ bị chỉ trích vì chỉnh sửa da quá đà cho Song Joong Ki" decoding="async" loading="lazy" sizes="120px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/saong-joong-ki-ngoisaovn-w1200-h720-120x86.jpg" /></div>
-                                </a>
-                              </div>
-                              <div className="jeg_postblock_content">
-                                <h3 className="jeg_post_title">
-                                  <a href="https://ngoisaoexpress.net/phim-cau-ut-nha-tai-phiet-bi-chi-trich-vi-chinh-sua-da-qua-da-cho-song-joong-ki/">Phim ‘Cậu út nhà tài phiệt’ bị chỉ trích vì chỉnh sửa da quá đà cho Song Joong Ki</a>
-                                </h3>
-                                <div className="jeg_post_meta">
-                                  <div className="jeg_meta_date"><a href="https://ngoisaoexpress.net/phim-cau-ut-nha-tai-phiet-bi-chi-trich-vi-chinh-sua-da-qua-da-cho-song-joong-ki/"><i className="fa fa-clock-o"></i> Tháng Hai 26, 2023</a></div>
-                                </div>
-                              </div>
-                            </article>
+                            {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemSmall key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
+                            <EmptyData listData={listNews} />
                           </div>
                           <div className="module-overlay">
                             <div className="preloader_type preloader_dot">
@@ -163,11 +161,7 @@ const SearchProduct = (props) => {
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="jeg_block_navigation">
-                          <div className="navigation_overlay">
-                            <div className="module-preloader jeg_preloader"><span></span><span></span><span></span></div>
-                          </div>
+                          
                         </div>
                       </div>
                     </div>
