@@ -13,6 +13,7 @@ import { COMMON_CONST } from "../../source/constants/constants";
 import { EnumRoutingPage } from "../../source/constants/enum";
 import { useRouter } from "next/router";
 import PaginatePage from "../../source/components/BoxSite/PaginatePage";
+import NewsItemSmall from "../../source/components/News/NewsItemSmall";
 
 export async function getServerSideProps(context) {
   const { query, res } = context;
@@ -23,7 +24,7 @@ export async function getServerSideProps(context) {
   const { urlRewriteName, p = 1 } = query;
 
   const listNews = await getNewsList({
-    name_rewrite: urlRewriteName,
+    PageNameRewrite: urlRewriteName,
     PageTypeId: 2,
     PageSize: COMMON_CONST.PageSizeNews,
     PageNumber: p,
@@ -52,7 +53,6 @@ const NewsCategory = (props) => {
     const link = `${urlCategoryNews}?p=${event.selected + 1}`;
     router.push(link);
   };
-  console.log(listNews, 'listNews');
 
   return (
     <Layout config={config}>
@@ -60,66 +60,6 @@ const NewsCategory = (props) => {
         <div className="jnews_category_header_top"></div>
         <div className="jeg_section">
           <div className="container">
-            <div className="jeg_ad jeg_category jnews_archive_above_hero_ads">
-              <div className="ads-wrapper"></div>
-            </div>
-            <div className="jnews_category_hero_container">
-              <div className="jeg_heroblock jeg_heroblock_9 jeg_col_3o3 jeg_hero_style_4 jnews_module_6192_0_63fcb5130d1c3" data-margin="2">
-                <div className="jeg_hero_wrapper">
-                  <div className="jeg_heroblock_wrapper">
-                    <article className="jeg_post jeg_hero_item_1 format-standard">
-                      <div className="jeg_block_container">
-                        <span className="jeg_postformat_icon"></span>
-                        <div className="jeg_thumb">
-                          <a href="https://ngoisaoexpress.net/minh-hang-kho-chiu-ra-mat-khi-co-nguoi-nhac-lai-man-lon-meo-truoc-day/">
-                            <div className="thumbnail-container thumbnail-background" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/34213r32143646-ngoisaovn-w1200-h720-750x450.jpg">
-                              <div className="lazyloaded" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/34213r32143646-ngoisaovn-w1200-h720-750x450.jpg"></div>
-                            </div>
-                          </a>
-                        </div>
-                        <div className="jeg_postblock_content">
-                          <div className="jeg_post_category"><a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/" className="category-chuyen-lang-sao">Chuyện làng sao</a></div>
-                          <div className="jeg_post_info">
-                            <h2 className="jeg_post_title">
-                              <a href="https://ngoisaoexpress.net/minh-hang-kho-chiu-ra-mat-khi-co-nguoi-nhac-lai-man-lon-meo-truoc-day/">Minh Hằng khó chịu ra mặt khi có người nhắc lại màn ‘lộn mèo’ trước đây</a>
-                            </h2>
-                            <div className="jeg_post_meta">
-                              <div className="jeg_meta_date"><a href="https://ngoisaoexpress.net/minh-hang-kho-chiu-ra-mat-khi-co-nguoi-nhac-lai-man-lon-meo-truoc-day/"><i className="fa fa-clock-o"></i> Tháng Hai 27, 2023</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                    <article className="jeg_post jeg_hero_item_2 format-standard">
-                      <div className="jeg_block_container">
-                        <span className="jeg_postformat_icon"></span>
-                        <div className="jeg_thumb">
-                          <a href="https://ngoisaoexpress.net/bao-thy-dot-mat-voi-body-cuc-hot-hanh-phuc-thong-bao-da-ve-lai-can-nang-thoi-son-roi/">
-                            <div className="thumbnail-container thumbnail-background" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/321r23t53-ngoisaovn-w1200-h720-1-750x450.jpg">
-                              <div className="lazyloaded" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/321r23t53-ngoisaovn-w1200-h720-1-750x450.jpg"></div>
-                            </div>
-                          </a>
-                        </div>
-                        <div className="jeg_postblock_content">
-                          <div className="jeg_post_category"><a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/" className="category-chuyen-lang-sao">Chuyện làng sao</a></div>
-                          <div className="jeg_post_info">
-                            <h2 className="jeg_post_title">
-                              <a href="https://ngoisaoexpress.net/bao-thy-dot-mat-voi-body-cuc-hot-hanh-phuc-thong-bao-da-ve-lai-can-nang-thoi-son-roi/">Bảo Thy ‘đốt mắt’ với body cực hot, hạnh phúc thông báo đã về lại cân nặng thời son rỗi</a>
-                            </h2>
-                            <div className="jeg_post_meta">
-                              <div className="jeg_meta_date"><a href="https://ngoisaoexpress.net/bao-thy-dot-mat-voi-body-cuc-hot-hanh-phuc-thong-bao-da-ve-lai-can-nang-thoi-son-roi/"><i className="fa fa-clock-o"></i> Tháng Hai 27, 2023</a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="jeg_ad jeg_category jnews_archive_below_hero_ads">
-              <div className="ads-wrapper"></div>
-            </div>
             <div className="jeg_cat_content row">
               <div className="jeg_main_content jeg_column col-sm-8">
                 <div className="jeg_inner_content">
@@ -142,6 +82,14 @@ const NewsCategory = (props) => {
                     <div className="jeg_postblock_5 jeg_postblock jeg_module_hook jeg_pagination_nav_1 jeg_col_2o3 jnews_module_6192_1_63fcb5130f09c" data-unique="jnews_module_6192_1_63fcb5130f09c">
                       <div className="jeg_block_container">
                         <div className="jeg_posts jeg_load_more_flag">
+                          <div className="jeg_ad jeg_ad_module jnews_inline_module_ads">
+                            <div className="ads-wrapper">
+                              <a href="#" target="_blank" rel="nofollow noopener" className="adlink ads_image inline_module">
+                                <img src="http://ngoisaoexpress.net/wp-content/uploads/2022/08/Biore_728x90px.jpg.webp"
+                                  alt="" data-pin-no-hover="true" />
+                              </a>
+                            </div>
+                          </div>
                           {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemMore key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
                           <EmptyData listData={listNews} />
                         </div>
@@ -183,9 +131,9 @@ const NewsCategory = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <div className="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-3">
+                    <div className="widget widget_jnews_module_element_ads">
                       <div className="jeg_ad jeg_ad_module jnews_module_6192_2_63fcb513161bc">
-                        <div className="ads-wrapper"><a href="https://tiki.vn/thuong-hieu/lipton.html?fbclid=IwAR3m7pCRgy4pvYs9Agc0W-ORasr2LWy_lNZgPmzyb15LEF8SOgaN31_QbTU" target="_blank" rel="nofollow noopener" className="adlink ads_image">
+                        <div className="ads-wrapper"><a href="" target="_blank" rel="nofollow noopener" className="adlink ads_image">
                           <img src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg.webp" className=" lazyloaded" alt="" data-pin-no-hover="true" />
                         </a>
                         </div>
@@ -195,21 +143,7 @@ const NewsCategory = (props) => {
                       <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6192_3_63fcb513166d8  jeg_pb_boxed normal" data-unique="jnews_module_6192_3_63fcb513166d8">
                         <div className="jeg_block_container">
                           <div className="jeg_posts jeg_load_more_flag">
-                            <article className="jeg_post jeg_pl_sm format-standard">
-                              <div className="jeg_thumb">
-                                <a href="https://ngoisaoexpress.net/moi-nguoi-noi-toi-da-qua-ngu-ngoc-khi-ban-ngoi-nha-de-tra-no-hon-3-ty-cho-vo/">
-                                  <div className="thumbnail-container animate-lazy  size-715"><img width="120" height="86" src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/untitled-1-copy-ngoisaovn-w1200-h720-120x86.jpg" className="attachment-jnews-120x86 size-jnews-120x86 wp-post-image lazyautosizes lazyloading afterloading" alt="Mọi người nói tôi đã quá ngu ngốc khi bán ngôi nhà để trả nợ hơn 3 tỷ cho vợ" decoding="async" loading="lazy" sizes="120px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/untitled-1-copy-ngoisaovn-w1200-h720-120x86.jpg" data-srcset="https://ngoisaoexpress.net/wp-content/uploads/2023/02/untitled-1-copy-ngoisaovn-w1200-h720-120x86.jpg 120w, https://ngoisaoexpress.net/wp-content/uploads/2023/02/untitled-1-copy-ngoisaovn-w1200-h720-350x250.jpg 350w, https://ngoisaoexpress.net/wp-content/uploads/2023/02/untitled-1-copy-ngoisaovn-w1200-h720-750x536.jpg 750w" data-sizes="auto" data-expand="700" title="Mọi người nói tôi đã quá ngu ngốc khi bán ngôi nhà để trả nợ hơn 3 tỷ cho vợ 11" /></div>
-                                </a>
-                              </div>
-                              <div className="jeg_postblock_content">
-                                <h3 className="jeg_post_title">
-                                  <a href="https://ngoisaoexpress.net/moi-nguoi-noi-toi-da-qua-ngu-ngoc-khi-ban-ngoi-nha-de-tra-no-hon-3-ty-cho-vo/">Mọi người nói tôi đã quá ngu ngốc khi bán ngôi nhà để trả nợ hơn 3 tỷ cho vợ</a>
-                                </h3>
-                                <div className="jeg_post_meta">
-                                  <div className="jeg_meta_date"><a href="https://ngoisaoexpress.net/moi-nguoi-noi-toi-da-qua-ngu-ngoc-khi-ban-ngoi-nha-de-tra-no-hon-3-ty-cho-vo/"><i className="fa fa-clock-o"></i> Tháng Hai 26, 2023</a></div>
-                                </div>
-                              </div>
-                            </article>
+                            {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemSmall key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
                           </div>
                           <div className="module-overlay">
                             <div className="preloader_type preloader_dot">

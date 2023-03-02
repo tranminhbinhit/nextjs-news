@@ -3,8 +3,8 @@ import React from "react";
 import { EnumRoutingPage } from "../../constants/enum";
 import { getImage, formatDateTimeView, getLinkUrl } from "../../utils/utils";
 /* eslint-disable */
-const NewsItemMore = ({ newsItem }) => {
-  const { ValueData, SeoData, CreatedDate, PageNameRewrite, PageName } =
+const NewsItemBox = ({ newsItem }) => {
+  const { ValueData, SeoData, CreatedDate, PageName, PageNameRewrite } =
     newsItem || {};
   const { SeoAttrImage: NewsImage, SeoAttrContentDescription: NewsDescription } =
     SeoData || {};
@@ -12,20 +12,20 @@ const NewsItemMore = ({ newsItem }) => {
     ValueData || {};
   const linkNewsDetail = getLinkUrl(EnumRoutingPage.NEWS.id, NewsUrl);
   return (
-    <article className="jeg_post jeg_pl_lg_2 format-standard">
+    <article className="jeg_post jeg_pl_md_5 format-standard">
       <div className="jeg_thumb">
         <Link href={linkNewsDetail}>
           <a>
             <div className="thumbnail-container size-715">
               <img width="350" height="250"
                 src={getImage(NewsImage)}
-                className="attachment-jnews-350x250 size-jnews-350x250 lazyload wp-post-image"
+                className="attachment-jnews-350x250 size-jnews-350x250 wp-post-image lazyautosizes lazyloading afterloading"
                 alt={NewsName}
-                decoding="async"
-                loading="lazy"
-                sizes="(max-width: 350px) 100vw, 350px"
+                decoding="async" sizes="230px"
+                data-sizes="auto"
                 data-expand="700"
-                title={NewsName} />
+                title={NewsName}
+              />
             </div>
           </a>
         </Link>
@@ -47,26 +47,17 @@ const NewsItemMore = ({ newsItem }) => {
             </a>
           </Link>
         </h3>
-        <div className="jeg_post_meta">
-          <div className="jeg_meta_date">
-            <Link href={linkNewsDetail}>
-              <a>
-                <i className="fa fa-clock-o"></i> {formatDateTimeView(CreatedDate)}
-              </a>
-            </Link>
-          </div>
-        </div>
-        <div className="jeg_post_excerpt">
-          <p>{NewsDescription}</p>
+        <div className="jeg_meta_date">
           <Link href={linkNewsDetail}>
-            <a className="jeg_readmore">
-              Xem thêm
+            <a>
+              <i className="fa fa-clock-o"></i> {formatDateTimeView(CreatedDate)}
             </a>
           </Link>
         </div>
       </div>
     </article>
+
   );
 };
 
-export default NewsItemMore;
+export default NewsItemBox;

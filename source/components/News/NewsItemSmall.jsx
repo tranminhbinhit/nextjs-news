@@ -3,7 +3,7 @@ import React from "react";
 import { EnumRoutingPage } from "../../constants/enum";
 import { getImage, formatDateTimeView, getLinkUrl } from "../../utils/utils";
 /* eslint-disable */
-const NewsItem = ({ newsItem }) => {
+const NewsItemSmall = ({ newsItem }) => {
   const { ValueData, SeoData, CreatedDate } =
     newsItem || {};
   const { SeoAttrImage: NewsImage, SeoAttrContentDescription: NewsDescription } =
@@ -49,4 +49,4 @@ const NewsItem = ({ newsItem }) => {
   );
 };
 
-export default NewsItem;
+export default NewsItemSmall;

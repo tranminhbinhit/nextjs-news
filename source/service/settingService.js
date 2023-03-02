@@ -11,7 +11,11 @@ export async function getSettingSystem(params) {
   );
   if (isSuccess(response)) {
     const { Data } = response;
-    const returnValue = JSON.parse(Data.ConfigJson || '{}');
+    const returnValue = {
+      ...Data,
+      ConfigJson: JSON.parse(Data.ConfigJson || '{}'),
+      ListCategoryJson: JSON.parse(Data.ListCategoryJson || '{}'),
+    };
     // const returnValue = result.reduce((mapData, obj) => {
     //   let valueObj = obj.SettingValue;
     //   if (obj.SettingType === "boolen") {

@@ -1,6 +1,12 @@
-.jeg_hero_item_1, .jeg_hero_item_2{
+.jeg_hero_item{
   padding: 0 0 2px 2px;
 }
 .jeg_heroblock_wrapper{
   margin: 0px 0px -2px -2px;
+}
+.jeg_heroblock .jeg_post{
+  position: relative;
+}
+.jeg_heroblock .jeg_heroblock_wrapper, .jeg_heroblock .jeg_heroblock_wrapper_skew{
+  display: inherit;
 }

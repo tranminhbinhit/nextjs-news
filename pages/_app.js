@@ -6,10 +6,6 @@ import NextNProgress from "nextjs-progressbar";
 
 import { getSettingSystem } from "../source/service/settingService";
 import { receiveSetting } from "../source/redux/action/settingAction";
-import { getMenuType } from "../source/service/mainService";
-import { receiveMenu } from "../source/redux/action/mainAction";
-import { getCategoryList } from "../source/service/categoryService";
-import { receiveCategory } from "../source/redux/action/categoryAction";
 
 import "../source/assets/css/main.css";
 import "react-notifications/lib/notifications.css";

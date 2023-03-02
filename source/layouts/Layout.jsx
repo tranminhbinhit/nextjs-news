@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import {
+  getImage,
   getImageCdn,
   getSettingValue,
   isEmpty,
@@ -25,24 +26,18 @@ const Layout = ({ children, title, description, image, config }) => {
   // const setting = useSelector((state) => state.setting);
   //const { config } = setting;
 
+  const { ConfigJson: setting } = config;
   const {
-    PD_SEO_DESCRIPTION,
-    PD_SEO_IMAGE,
-    PD_SEO_KEYWORD,
-    PD_SEO_WEBSITE_TITLE,
-    PD_SEO_WEBSITE_NAME,
-    WEB_FAVICON_IMAGE,
-  } = config || {};
-  const websiteTitle = getSettingValue(PD_SEO_WEBSITE_TITLE);
-  const websiteDescription = getSettingValue(PD_SEO_DESCRIPTION);
-  const websiteKeyword = getSettingValue(PD_SEO_KEYWORD);
-  const websiteImage = getSettingValue(PD_SEO_IMAGE);
-  const websiteName = getSettingValue(PD_SEO_WEBSITE_NAME);
-  const websiteFavicon = getSettingValue(WEB_FAVICON_IMAGE);
+    WebDescription,
+    WebImage,
+    WebTitle,
+    WebName,
+    WebIcon,
+  } = setting || {};
 
-  title = title || websiteTitle;
-  description = description || websiteDescription;
-  image = image || getImageCdn(websiteImage);
+  title = title || WebTitle;
+  description = description || WebDescription;
+  image = image || getImageCdn(WebImage);
   return (
     <React.Fragment>
       <Head>
@@ -52,14 +47,13 @@ const Layout = ({ children, title, description, image, config }) => {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
         <meta httpEquiv="content-language" content="vi" />
-        <meta name="keywords" content={websiteKeyword} />
-        <meta property="og:site_name" content={websiteName} />
+        <meta property="og:site_name" content={WebName} />
         <meta property="og:type" content="website" />
         <meta name="robots" content="INDEX, FOLLOW" />
         <link
           id="favicon"
           rel="icon"
-          href={getImageCdn(websiteFavicon)}
+          href={getImage(WebIcon)}
           type="image/x-icon"
           sizes="32x32"
           data-react-helmet="true"

@@ -38,8 +38,8 @@ const makeStore = ({ isServer }) => {
         ? createWebStorage("local")
         : createNoopStorage();
     const persistConfig = {
-      key: "enowProduct",
-      whitelist: ["app", "setting", "category", "cart"],
+      key: "enowNews",
+      whitelist: [],//["app", "setting"],
       storage,
     };
 

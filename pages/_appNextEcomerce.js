@@ -10,7 +10,6 @@ import { getSettingSystem } from "../source/service/settingService";
 import { receiveSetting } from "../source/redux/action/settingAction";
 import { getMenuType } from "../source/service/mainService";
 import { receiveMenu } from "../source/redux/action/mainAction";
-import { getCategoryList } from "../source/service/categoryService";
 import { receiveCategory } from "../source/redux/action/categoryAction";
 
 import "../source/assets/css/main.css";
@@ -28,31 +27,21 @@ class MyApp extends React.Component {
   static async getInitialProps(ctx) {
     // const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
     let setting = await getSettingSystem();
-    let menu = await getMenuType({
-      type: 1,
-    });
-    const listCategory = await getCategoryList();
     return {
       setting,
-      menu,
-      listCategory,
     };
   }
 
   componentDidMount() {
     const {
       setting,
-      menu,
-      listCategory,
-      receiveMenuConnect,
       receiveSettingConnect,
       receiveCategoryConnect,
     } = this.props;
 
     //Init Data
-    receiveSettingConnect(setting);
-    receiveMenuConnect(menu);
-    receiveCategoryConnect(listCategory);
+    receiveSettingConnect(setting.ConfigJson);
+    receiveCategoryConnect(setting.ListCategoryJson);
   }
 
   render() {

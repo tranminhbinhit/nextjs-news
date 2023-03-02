@@ -1,7 +1,6 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { combineReducers } from "redux";
 import appReducer from "./appReducer";
-import cartReducer from "./cartReducer";
 import categoryReducer from "./categoryReducer";
 import settingsReducer from "./settingReducer";
 
@@ -9,7 +8,6 @@ const combineReducer = combineReducers({
   setting: settingsReducer,
   app: appReducer,
   category: categoryReducer,
-  cart: cartReducer,
 });
 
 const rootReducer = (state, action) => {

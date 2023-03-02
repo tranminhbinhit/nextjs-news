@@ -2,7 +2,6 @@ import Head from "next/head";
 import Layout from "../source/layouts/Layout";
 import { useDispatch } from "react-redux";
 import React from "react";
-import { getProductSearch } from "../source/service/productService";
 import FutureTitle from "../source/components/BoxSite/FutureTitle";
 import { getLinkUrl, isEmptyObject } from "../source/utils/utils";
 import EmptyData from "../source/components/BoxSite/EmptyData";
