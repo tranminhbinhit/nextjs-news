@@ -375,7 +375,7 @@ const Home = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <AdsBox345 page="home" position="left_1" />
+                    <AdsBox345 page="home" position="right_1" />
                     <div
                       className="widget widget_jnews_module_block_21"
                       id="jnews_module_block_21-3"

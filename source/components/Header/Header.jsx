@@ -119,7 +119,7 @@ class Header extends Component {
                   </div>
                   <div className="jeg_nav_col jeg_nav_right jeg_nav_grow">
                     <div className="item_wrap jeg_nav_alignright">
-                      <AdsRow728 />
+                      <AdsRow728 page="all" position="center_1" />
                     </div>
                   </div>
                 </div>

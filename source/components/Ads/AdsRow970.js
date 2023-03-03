@@ -1,23 +1,35 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { connect } from "react-redux";
+import { wrapper } from "../../redux/store";
+import { isEmptyObject } from "../../utils/utils";
 
-const AdsRow970 = ({ items }) => {
-  return (
+const AdsRow970 = (props) => {
+  const { page, position, config } = props;
+  const { ConfigJson } = config || {};
+  const { ListAds = [] } = ConfigJson || {};
+  const adsItem = ListAds.find(m => m.Page == page && m.Position == position);
+  return !isEmptyObject(adsItem) ? (
     <div className="ads-wrapper">
       <a
-        href="#"
+        href={adsItem.Url}
         target="_blank"
         rel="nofollow noopener"
         className="adlink ads_image inline_module"
       >
         <img
-          src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Toyota_970x90px_2.jpg.webp"
-          alt=""
-          data-pin-no-hover="true"
+          src={getImage(adsItem.Data)}
+          alt={adsItem.Description}
         />
       </a>
     </div>
-  );
+  ) : '';
 };
 
-export default AdsRow970;
+const mapStateToProps = (state) => ({
+  config: state.setting.config,
+});
+
+export default wrapper.withRedux(
+  connect(mapStateToProps, null)(AdsRow970)
+);

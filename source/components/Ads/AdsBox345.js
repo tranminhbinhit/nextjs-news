@@ -1,29 +1,40 @@
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { connect } from "react-redux";
+import { wrapper } from "../../redux/store";
+import { getImage, isEmptyObject } from "../../utils/utils";
 
-const AdsBox345 = ({ items }) => {
-  return (
+const AdsBox345 = (props) => {
+  const { page, position, config } = props;
+  const { ConfigJson } = config || {};
+  const { ListAds = [] } = ConfigJson || {};
+  const adsItem = ListAds.find(m => m.Page == page && m.Position == position);
+  return !isEmptyObject(adsItem) ? (
     <div
       className="widget widget_jnews_module_element_ads"
-      id="jnews_module_element_ads-4"
     >
       <div className="jeg_ad jeg_ad_module jnews_module_1956_6_63f5e70255e05">
         <div className="ads-wrapper">
           <a
-            href=""
+            href={adsItem.Url}
             target="_blank"
             rel="nofollow noopener"
-            className="adlink ads_image"
+            className="adlink ads_image inline_module"
           >
             <img
-              src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg.webp"
-              className="lazyload"
+              src={getImage(adsItem.Data)}
+              alt={adsItem.Description}
             />
           </a>
         </div>
       </div>
     </div>
-  );
+  ) : '';
 };
 
-export default AdsBox345;
+const mapStateToProps = (state) => ({
+  config: state.setting.config,
+});
+
+export default wrapper.withRedux(
+  connect(mapStateToProps, null)(AdsBox345)
+);
