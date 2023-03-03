@@ -12,6 +12,8 @@ import { COMMON_CONST } from '../source/constants/constants';
 import NewsItem from "../source/components/News/NewsItem";
 import NewsItemSmall from "../source/components/News/NewsItemSmall";
 import { getNewsList } from "../source/service/newsService";
+import AdsRow728 from "../source/components/Ads/AdsRow728";
+import AdsBox345 from "../source/components/Ads/AdsBox345";
 
 export async function getServerSideProps(context) {
   const { query, res } = context;
@@ -60,9 +62,7 @@ const SearchProduct = (props) => {
       <div className="jeg_content">
         <div className="jeg_section">
           <div className="container">
-            <div className="jeg_ad jeg_archive jnews_archive_above_content_ads">
-              <div className="ads-wrapper"></div>
-            </div>
+            <AdsRow728 />
             <div className="jeg_cat_content row">
               <div className="jeg_main_content col-sm-8">
                 <div className="jeg_inner_content">
@@ -118,24 +118,7 @@ const SearchProduct = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    {/* <div className="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-3">
-                      <div className="jeg_ad jeg_ad_module jnews_module_6160_1_63fcc495ea89e">
-                        <div className="ads-wrapper">
-                          <a
-                            href="https://tiki.vn/thuong-hieu/lipton.html?fbclid=IwAR3m7pCRgy4pvYs9Agc0W-ORasr2LWy_lNZgPmzyb15LEF8SOgaN31_QbTU"
-                            target="_blank"
-                            rel="nofollow noopener"
-                            className="adlink ads_image">
-                            <img
-                              src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg"
-                              className=" lazyloaded"
-                              data-src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg"
-                              alt=""
-                              data-pin-no-hover="true" />
-                          </a>
-                        </div>
-                      </div>
-                    </div> */}
+                    <AdsBox345 />
                     <div className="widget widget_jnews_module_block_21">
                       <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6160_2_63fcc495eb2db  jeg_pb_boxed normal" data-unique="jnews_module_6160_2_63fcc495eb2db">
                         <div className="jeg_block_container">
@@ -170,9 +153,6 @@ const SearchProduct = (props) => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="jeg_ad jnews_above_footer_ads">
-        <div className="ads-wrapper"></div>
       </div>
     </Layout>
   );

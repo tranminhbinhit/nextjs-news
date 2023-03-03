@@ -23,6 +23,8 @@ import LeftBarNews from "../source/components/News/LeftBarNews";
 import { EnumRoutingPage } from "../source/constants/enum";
 import NewsItemSmall from "../source/components/News/NewsItemSmall";
 import NewsItem from "../source/components/News/NewsItem";
+import AdsRow728 from "../source/components/Ads/AdsRow728";
+import AdsBox345 from "../source/components/Ads/AdsBox345";
 
 export async function getServerSideProps(context) {
   const { query, res } = context;
@@ -103,13 +105,7 @@ const NewsDetail = (props) => {
       {/* <FutureTitle roots={roots} /> */}
       <div className="jeg_content">
         <div className="container">
-          <div className="jeg_ad jeg_article jnews_article_top_ads">
-            <div className="ads-wrapper">
-              <a target="_blank" rel="nofollow noopener" className="adlink ads_image">
-                <img src="http://ngoisaoexpress.net/wp-content/uploads/2022/12/HSBC_728x90px_3.jpg" className=" lazyloaded" alt="" data-pin-no-hover="true" />
-              </a>
-            </div>
-          </div>
+          <AdsRow728 />
           <div className="row">
             <div className="jeg_main_content col-md-8">
               <div className="jeg_inner_content">
@@ -136,18 +132,10 @@ const NewsDetail = (props) => {
                 </div>
                 <div className="jeg_featured featured_image">
                   <a>
-
                     <img width="750" height="375" src={newsImage} className="attachment-jnews-750x375 size-jnews-750x375 wp-post-image lazyautosizes lazyloaded" alt="Nicola Peltz đang đưa câu chuyện ‘chiếc váy cưới’ đi quá xa khiến Victoria bối rối" decoding="async" sizes="750px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/9-ngoisaovn-w1200-h720-1-750x375.jpg" />
-
                   </a>
                 </div>
-                <div className="jeg_ad jeg_article jnews_content_top_ads">
-                  <div className="ads-wrapper">
-                    <a target="_blank" rel="nofollow noopener" className="adlink ads_image">
-                      <img src="http://ngoisaoexpress.net/wp-content/uploads/2022/12/HSBC_728x90px_3.jpg" className=" lazyloaded" alt="" data-pin-no-hover="true" />
-                    </a>
-                  </div>
-                </div>
+                <AdsRow728 />
                 <div className="entry-content no-share">
                   <div dangerouslySetInnerHTML={{
                     __html: HtmlContent,
@@ -216,15 +204,7 @@ const NewsDetail = (props) => {
             <div className="jeg_sidebar  jeg_sticky_sidebar col-md-4">
               <div className="jegStickyHolder">
                 <div className="theiaStickySidebar">
-                  <div className="widget widget_jnews_module_element_ads" id="jnews_module_element_ads-3">
-                    <div className="jeg_ad jeg_ad_module jnews_module_6016_1_63fcbe6e9178f">
-                      <div className="ads-wrapper">
-                        <a target="_blank" rel="nofollow noopener" className="adlink ads_image">
-                          <img src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg.webp" className=" lazyloaded" alt="" data-pin-no-hover="true" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                  <AdsBox345 />
                   <div className="widget widget_jnews_module_block_21" id="jnews_module_block_21-2">
                     <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6016_2_63fcbe6e91d0d  jeg_pb_boxed normal">
                       <div className="jeg_block_container">

@@ -14,6 +14,8 @@ import { EnumRoutingPage } from "../../source/constants/enum";
 import { useRouter } from "next/router";
 import PaginatePage from "../../source/components/BoxSite/PaginatePage";
 import NewsItemSmall from "../../source/components/News/NewsItemSmall";
+import AdsRow728 from "../../source/components/Ads/AdsRow728";
+import AdsBox345 from "../../source/components/Ads/AdsBox345";
 
 export async function getServerSideProps(context) {
   const { query, res } = context;
@@ -82,14 +84,7 @@ const NewsCategory = (props) => {
                     <div className="jeg_postblock_5 jeg_postblock jeg_module_hook jeg_pagination_nav_1 jeg_col_2o3 jnews_module_6192_1_63fcb5130f09c" data-unique="jnews_module_6192_1_63fcb5130f09c">
                       <div className="jeg_block_container">
                         <div className="jeg_posts jeg_load_more_flag">
-                          <div className="jeg_ad jeg_ad_module jnews_inline_module_ads">
-                            <div className="ads-wrapper">
-                              <a href="#" target="_blank" rel="nofollow noopener" className="adlink ads_image inline_module">
-                                <img src="http://ngoisaoexpress.net/wp-content/uploads/2022/08/Biore_728x90px.jpg.webp"
-                                  alt="" data-pin-no-hover="true" />
-                              </a>
-                            </div>
-                          </div>
+                          <AdsRow728 />
                           {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemMore key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
                           <EmptyData listData={listNews} />
                         </div>
@@ -131,14 +126,7 @@ const NewsCategory = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <div className="widget widget_jnews_module_element_ads">
-                      <div className="jeg_ad jeg_ad_module jnews_module_6192_2_63fcb513161bc">
-                        <div className="ads-wrapper"><a href="" target="_blank" rel="nofollow noopener" className="adlink ads_image">
-                          <img src="https://ngoisaoexpress.net/wp-content/uploads/2022/08/Lipton_345x345px.jpg.webp" className=" lazyloaded" alt="" data-pin-no-hover="true" />
-                        </a>
-                        </div>
-                      </div>
-                    </div>
+                    <AdsBox345 />
                     <div className="widget widget_jnews_module_block_21" id="jnews_module_block_21-2">
                       <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6192_3_63fcb513166d8  jeg_pb_boxed normal" data-unique="jnews_module_6192_3_63fcb513166d8">
                         <div className="jeg_block_container">
