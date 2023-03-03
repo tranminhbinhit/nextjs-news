@@ -10,11 +10,12 @@ export async function getSettingSystem(params) {
     params
   );
   if (isSuccess(response)) {
-    const { Data } = response;
+    let { Data: listData = {} } = response || {};
+    listData = listData || {};
     const returnValue = {
-      ...Data,
-      ConfigJson: JSON.parse(Data.ConfigJson || '{}'),
-      ListCategoryJson: JSON.parse(Data.ListCategoryJson || '{}'),
+      ...listData,
+      ConfigJson: JSON.parse(listData.ConfigJson || '{}'),
+      ListCategoryJson: JSON.parse(listData.ListCategoryJson || '{}'),
     };
     // const returnValue = result.reduce((mapData, obj) => {
     //   let valueObj = obj.SettingValue;

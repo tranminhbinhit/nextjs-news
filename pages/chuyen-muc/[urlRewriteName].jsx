@@ -85,7 +85,7 @@ const NewsCategory = (props) => {
                     <div className="jeg_postblock_5 jeg_postblock jeg_module_hook jeg_pagination_nav_1 jeg_col_2o3 jnews_module_6192_1_63fcb5130f09c" data-unique="jnews_module_6192_1_63fcb5130f09c">
                       <div className="jeg_block_container">
                         <div className="jeg_posts jeg_load_more_flag">
-                          <AdsRow728  page="category" position="left_1"/>
+                          <AdsRow728 page="category" position="left_1" />
                           {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemMore key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
                           <EmptyData listData={listNews} />
                         </div>
@@ -108,17 +108,12 @@ const NewsCategory = (props) => {
                         </div>
                       </div>
                       <div className="jeg_block_navigation">
-                        <div className="navigation_overlay">
-                          <div className="module-preloader jeg_preloader"><span></span><span></span><span></span></div>
-                        </div>
-                        <div className="jeg_navigation jeg_pagination jeg_pagenav_1 jeg_aligncenter  no_pageinfo">
-                          <span className="page_info">Page 1 of 27</span>
-                          <span className="page_number active">1</span>
-                          <a className="page_number" href="https://ngoisaoexpress.net/category/chuyen-lang-sao/page/2/">2</a>
-                          <span className="page_number dots">…</span>
-                          <a className="page_number" href="https://ngoisaoexpress.net/category/chuyen-lang-sao/page/27/">27</a>
-                          <a className="page_nav next" href="https://ngoisaoexpress.net/category/chuyen-lang-sao/page/2/"><span className="navtext">Next</span></a>
-                        </div>
+                        <PaginatePage
+                          handlePageClick={handlePageClick}
+                          totalRow={totalRows}
+                          pageSize={COMMON_CONST.PageSize}
+                          pageNumber={pageNumber}
+                        />
                       </div>
                     </div>
                   </div>
@@ -127,7 +122,7 @@ const NewsCategory = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <AdsBox345 page="category" position="right_1"/>
+                    <AdsBox345 page="category" position="right_1" />
                     <div className="widget widget_jnews_module_block_21" id="jnews_module_block_21-2">
                       <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6192_3_63fcb513166d8  jeg_pb_boxed normal" data-unique="jnews_module_6192_3_63fcb513166d8">
                         <div className="jeg_block_container">
@@ -167,7 +162,7 @@ const NewsCategory = (props) => {
         </div>
       </div>
       <div className="jeg_ad jnews_above_footer_ads">
-        <AdsRow970 page="category" position="center_1"/>
+        <AdsRow970 page="category" position="center_1" />
       </div>
     </Layout >
   );

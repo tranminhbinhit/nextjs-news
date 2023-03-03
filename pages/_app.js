@@ -49,7 +49,7 @@ const MyApp = (props) => {
 
 MyApp.getInitialProps = async (appContext) => {
   let setting = await getSettingSystem({
-    PageTypeId: 2
+    PageUrl: 'ngoisaoexpress.net'
   });
 
   return {

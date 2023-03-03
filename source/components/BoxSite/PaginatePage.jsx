@@ -5,24 +5,23 @@ import { getTotalPage } from '../../utils/utils';
 class PaginatePage extends Component {
   render() {
     const { handlePageClick, totalRow, pageSize, pageNumber = 1 } = this.props;
+    console.log(handlePageClick, totalRow, pageSize, pageNumber);
     const totalPage = getTotalPage(totalRow, pageSize);
     return totalPage > 2 ? (
-      <nav className="text-center">
-        <ReactPaginate
-          className="page-numbers nav-pagination links"
-          activeLinkClassName="current"
-          pageLinkClassName="page-number cursor"
-          breakLabel="..."
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          itemsPerPage={4}
-          pageRangeDisplayed={2}
-          //initialPage={pageNumber}
-          pageCount={totalPage}
-          previousLabel="<"
-          renderOnZeroPageCount={null}
-        />
-      </nav>
+      <ReactPaginate
+        className="jeg_navigation jeg_pagination  jeg_pagenav_1 jeg_aligncenter no_navtext no_pageinfo"
+        activeLinkClassName="active"
+        pageLinkClassName="page_number cursor"
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        itemsPerPage={4}
+        pageRangeDisplayed={2}
+        //initialPage={pageNumber}
+        pageCount={totalPage}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+      />
     ) : '';
   }
 }

@@ -131,11 +131,11 @@ const Home = (props) => {
                       <div className="jeg_heroblock_wrapper">
                         {!isEmptyObject(listNewsStar)
                           ? listNewsStar.map((newsItem) => (
-                              <NewsItemLarge
-                                key={`key-${newsItem.CrawlerDataId}`}
-                                newsItem={newsItem}
-                              />
-                            ))
+                            <NewsItemLarge
+                              key={`key-${newsItem.CrawlerDataId}`}
+                              newsItem={newsItem}
+                            />
+                          ))
                           : ""}
                       </div>
                     </div>
@@ -165,11 +165,11 @@ const Home = (props) => {
                         <div className="jeg_posts jeg_load_more_flag">
                           {!isEmptyObject(listNewsBotton)
                             ? listNewsBotton.map((newsItem) => (
-                                <NewsItemBox
-                                  key={`key-${newsItem.CrawlerDataId}`}
-                                  newsItem={newsItem}
-                                />
-                              ))
+                              <NewsItemBox
+                                key={`key-${newsItem.CrawlerDataId}`}
+                                newsItem={newsItem}
+                              />
+                            ))
                             : ""}
                           <EmptyData listData={listNewsBotton} />
                         </div>
@@ -234,11 +234,11 @@ const Home = (props) => {
                           <div className="jeg_posts jeg_load_more_flag">
                             {!isEmptyObject(listNewsBotton)
                               ? listNewsBotton.map((newsItem) => (
-                                  <NewsItemSmall
-                                    key={`key-${newsItem.CrawlerDataId}`}
-                                    newsItem={newsItem}
-                                  />
-                                ))
+                                <NewsItemSmall
+                                  key={`key-${newsItem.CrawlerDataId}`}
+                                  newsItem={newsItem}
+                                />
+                              ))
                               : ""}
                           </div>
                           <div className="module-overlay">
@@ -311,11 +311,11 @@ const Home = (props) => {
                     <div className="jeg_posts jeg_load_more_flag">
                       {!isEmptyObject(listNewsBotton)
                         ? listNewsBotton.map((newsItem) => (
-                            <NewsItem
-                              key={`key-${newsItem.CrawlerDataId}`}
-                              newsItem={newsItem}
-                            />
-                          ))
+                          <NewsItem
+                            key={`key-${newsItem.CrawlerDataId}`}
+                            newsItem={newsItem}
+                          />
+                        ))
                         : ""}
                     </div>
                     <div className="module-overlay">
@@ -393,11 +393,11 @@ const Home = (props) => {
                           <div className="jeg_posts jeg_load_more_flag">
                             {!isEmptyObject(listNewsBotton)
                               ? listNewsBotton.map((newsItem) => (
-                                  <NewsItemSmall
-                                    key={`key-${newsItem.CrawlerDataId}`}
-                                    newsItem={newsItem}
-                                  />
-                                ))
+                                <NewsItemSmall
+                                  key={`key-${newsItem.CrawlerDataId}`}
+                                  newsItem={newsItem}
+                                />
+                              ))
                               : ""}
                           </div>
                           <div className="module-overlay">

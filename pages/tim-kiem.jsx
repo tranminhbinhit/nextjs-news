@@ -21,12 +21,12 @@ export async function getServerSideProps(context) {
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=59'
   );
-  const { key, p = 1 } = query;
+  const { key = '', p = 1 } = query;
   const listNews = await getNewsList({
     PageTypeId: 2,
     PageSize: COMMON_CONST.PageSizeNews,
     PageNumber: p,
-    SearchText: key
+    SearchText: key || ''
   });
 
   return {
@@ -62,7 +62,7 @@ const SearchProduct = (props) => {
       <div className="jeg_content">
         <div className="jeg_section">
           <div className="container">
-            <AdsRow728 page="search" position="left_1"/>
+            <AdsRow728 page="search" position="left_1" />
             <div className="jeg_cat_content row">
               <div className="jeg_main_content col-sm-8">
                 <div className="jeg_inner_content">
@@ -103,14 +103,12 @@ const SearchProduct = (props) => {
                           </div>
                         </div>
                       </div>
-                      <div className="jeg_navigation jeg_pagination  jeg_pagenav_1 jeg_aligncenter no_navtext no_pageinfo">
-                        <span className="page_info">Page 1 of 141</span>
-                        <span className="page_number active">1</span>
-                        <a className="page_number" data-id="2" href="https://ngoisaoexpress.net/page/2/?s=ga">2</a>
-                        <span className="page_number dots">…</span>
-                        <a className="page_number" data-id="141" href="https://ngoisaoexpress.net/page/141/?s=ga">141</a>
-                        <a className="page_nav next" data-id="2" href="https://ngoisaoexpress.net/page/2/?s=ga"><span className="navtext">Next</span></a>
-                      </div>
+                      <PaginatePage
+                        handlePageClick={handlePageClick}
+                        totalRow={totalRows}
+                        pageSize={COMMON_CONST.PageSize}
+                        pageNumber={pageNumber}
+                      />
                     </div>
                   </div>
                 </div>
@@ -118,7 +116,7 @@ const SearchProduct = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <AdsBox345 page="search" position="right_1"/>
+                    <AdsBox345 page="search" position="right_1" />
                     <div className="widget widget_jnews_module_block_21">
                       <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6160_2_63fcc495eb2db  jeg_pb_boxed normal" data-unique="jnews_module_6160_2_63fcc495eb2db">
                         <div className="jeg_block_container">
@@ -143,7 +141,7 @@ const SearchProduct = (props) => {
                               </div>
                             </div>
                           </div>
-                          
+
                         </div>
                       </div>
                     </div>

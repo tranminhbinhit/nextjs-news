@@ -10,3 +10,26 @@
 .jeg_heroblock .jeg_heroblock_wrapper, .jeg_heroblock .jeg_heroblock_wrapper_skew{
   display: inherit;
 }
+
+.jeg_pagenav_1 li {
+  display: inline-block;
+}
+
+.jeg_pagenav_1 li a {
+  color: #212121;
+  padding: 0 10px;
+  display: inline-block;
+  border: 1px solid #eee;
+  text-align: center;
+  min-width: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s ease;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.cursor{
+  cursor: pointer;
+}
