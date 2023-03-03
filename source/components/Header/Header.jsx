@@ -4,6 +4,7 @@ import { connect, useSelector } from "react-redux";
 import { EnumLanguage, EnumRoutingPage } from "../../constants/enum";
 import { changeStatePopup } from "../../redux/action/mainAction";
 import { wrapper } from "../../redux/store";
+import AdsRow728 from '../Ads/AdsRow728';
 import { formatPhone, getImage, getImageCdn, getLinkUrl, getSettingValue, isEmptyObject } from "../../utils/utils";
 import MobilePopupCart from "./components/MobilePopupCart";
 import MobilePopupMenu from "./components/MobilePopupMenu";
@@ -118,21 +119,7 @@ class Header extends Component {
                   </div>
                   <div className="jeg_nav_col jeg_nav_right jeg_nav_grow">
                     <div className="item_wrap jeg_nav_alignright">
-                      <div className="jeg_nav_item jeg_ad jeg_ad_top jnews_header_ads">
-                        <div className="ads-wrapper">
-                          <a
-                            rel="noopener"
-                            className="adlink ads_image"
-                          >
-                            <img
-                              src="/images/Biore_728x90px.jpg"
-                              className=" lazyloaded"
-                              alt="Advertisement"
-                              data-pin-no-hover="true"
-                            />
-                          </a>
-                        </div>
-                      </div>
+                      <AdsRow728 />
                     </div>
                   </div>
                 </div>

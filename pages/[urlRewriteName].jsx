@@ -105,7 +105,7 @@ const NewsDetail = (props) => {
       {/* <FutureTitle roots={roots} /> */}
       <div className="jeg_content">
         <div className="container">
-          <AdsRow728 />
+          <AdsRow728 page="detail" position="left_1" />
           <div className="row">
             <div className="jeg_main_content col-md-8">
               <div className="jeg_inner_content">
@@ -135,7 +135,7 @@ const NewsDetail = (props) => {
                     <img width="750" height="375" src={newsImage} className="attachment-jnews-750x375 size-jnews-750x375 wp-post-image lazyautosizes lazyloaded" alt="Nicola Peltz đang đưa câu chuyện ‘chiếc váy cưới’ đi quá xa khiến Victoria bối rối" decoding="async" sizes="750px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/9-ngoisaovn-w1200-h720-1-750x375.jpg" />
                   </a>
                 </div>
-                <AdsRow728 />
+                <AdsRow728 page="detail" position="left_2" />
                 <div className="entry-content no-share">
                   <div dangerouslySetInnerHTML={{
                     __html: HtmlContent,
@@ -204,7 +204,7 @@ const NewsDetail = (props) => {
             <div className="jeg_sidebar  jeg_sticky_sidebar col-md-4">
               <div className="jegStickyHolder">
                 <div className="theiaStickySidebar">
-                  <AdsBox345 />
+                  <AdsBox345 page="detail" position="right_1" />
                   <div className="widget widget_jnews_module_block_21" id="jnews_module_block_21-2">
                     <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6016_2_63fcbe6e91d0d  jeg_pb_boxed normal">
                       <div className="jeg_block_container">

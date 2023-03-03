@@ -16,6 +16,7 @@ import PaginatePage from "../../source/components/BoxSite/PaginatePage";
 import NewsItemSmall from "../../source/components/News/NewsItemSmall";
 import AdsRow728 from "../../source/components/Ads/AdsRow728";
 import AdsBox345 from "../../source/components/Ads/AdsBox345";
+import AdsRow970 from "../../source/components/Ads/AdsRow970";
 
 export async function getServerSideProps(context) {
   const { query, res } = context;
@@ -84,7 +85,7 @@ const NewsCategory = (props) => {
                     <div className="jeg_postblock_5 jeg_postblock jeg_module_hook jeg_pagination_nav_1 jeg_col_2o3 jnews_module_6192_1_63fcb5130f09c" data-unique="jnews_module_6192_1_63fcb5130f09c">
                       <div className="jeg_block_container">
                         <div className="jeg_posts jeg_load_more_flag">
-                          <AdsRow728 />
+                          <AdsRow728  page="category" position="left_1"/>
                           {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemMore key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
                           <EmptyData listData={listNews} />
                         </div>
@@ -126,7 +127,7 @@ const NewsCategory = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <AdsBox345 />
+                    <AdsBox345 page="category" position="right_1"/>
                     <div className="widget widget_jnews_module_block_21" id="jnews_module_block_21-2">
                       <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6192_3_63fcb513166d8  jeg_pb_boxed normal" data-unique="jnews_module_6192_3_63fcb513166d8">
                         <div className="jeg_block_container">
@@ -166,7 +167,7 @@ const NewsCategory = (props) => {
         </div>
       </div>
       <div className="jeg_ad jnews_above_footer_ads">
-        <div className="ads-wrapper"></div>
+        <AdsRow970 page="category" position="center_1"/>
       </div>
     </Layout >
   );

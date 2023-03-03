@@ -62,7 +62,7 @@ const SearchProduct = (props) => {
       <div className="jeg_content">
         <div className="jeg_section">
           <div className="container">
-            <AdsRow728 />
+            <AdsRow728 page="search" position="left_1"/>
             <div className="jeg_cat_content row">
               <div className="jeg_main_content col-sm-8">
                 <div className="jeg_inner_content">
@@ -118,7 +118,7 @@ const SearchProduct = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <AdsBox345 />
+                    <AdsBox345 page="search" position="right_1"/>
                     <div className="widget widget_jnews_module_block_21">
                       <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6160_2_63fcc495eb2db  jeg_pb_boxed normal" data-unique="jnews_module_6160_2_63fcc495eb2db">
                         <div className="jeg_block_container">

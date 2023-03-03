@@ -286,7 +286,7 @@ const Home = (props) => {
               <div className="wpb_column jeg_column vc_column_container vc_col-sm-12 jeg_main_content">
                 <div className="jeg_wrapper wpb_wrapper">
                   <div className="jeg_ad jeg_ad_module jnews_module_1956_4_63f5e702500d6  vc_custom_1672642380347">
-                    <AdsRow970 />
+                    <AdsRow970 page="home" position="center_1" />
                   </div>
                 </div>
               </div>
@@ -375,7 +375,7 @@ const Home = (props) => {
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
                 <div className="jegStickyHolder">
                   <div className="theiaStickySidebar">
-                    <AdsBox345 />
+                    <AdsBox345 page="home" position="left_1" />
                     <div
                       className="widget widget_jnews_module_block_21"
                       id="jnews_module_block_21-3"
