@@ -187,14 +187,14 @@ const NewsDetail = (props) => {
                         </div>
                       </div>
                     </div>
-                    <div className="jeg_block_navigation">
+                    {/* <div className="jeg_block_navigation">
                       <div className="navigation_overlay">
                         <div className="module-preloader jeg_preloader"><span></span><span></span><span></span></div>
                       </div>
                       <div className="jeg_block_loadmore">
-                        <a href="https://ngoisaoexpress.net/chuyen-gia-kieu-nguyen-chinh-phuc-khach-hang-voi-su-tan-tam-cong-hien/#" className="" data-load="Tải thêm" data-loading="Đang tải..."> Tải thêm</a>
+                        <a href="https://ngoisg-voi-su-tan-tam-cong-hien/#" className="" data-load="Tải thêm" data-loading="Đang tải..."> Tải thêm</a>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="jnews_popup_post_container"></div>

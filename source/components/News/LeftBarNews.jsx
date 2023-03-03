@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import { EnumRoutingPage } from "../../constants/enum";
-import { getNewsCategory, getNewsFilter } from "../../service/newsService";
+import { getNewsTop } from "../../service/newsService";
 import { getLinkUrl, isEmptyObject } from "../../utils/utils";
 
 class LeftBarNews extends React.Component {
@@ -12,16 +12,14 @@ class LeftBarNews extends React.Component {
   };
 
   loadInitData = async () => {
-    const listNewsCategory = await getNewsCategory({});
-    const listTopNews = await getNewsFilter({
-      type: 1,
-      p: 1,
-      ps: 5,
+    const listTopNews = await getNewsTop({
+      PageTypeId: 2,
+      TopNumber: 10,
     });
+    
     this.setState({
       ...this.state,
       listTopNews,
-      listNewsCategory,
     });
   };
   componentDidMount() {
