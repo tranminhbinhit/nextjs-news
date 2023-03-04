@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { EnumRoutingPage } from "../../constants/enum";
-import { getImage, formatDateTimeView, getLinkUrl } from "../../utils/utils";
+import { getImage, formatDateTimeView, getLinkUrl, formatDateTimeAgo } from "../../utils/utils";
 /* eslint-disable */
 const NewsItemLarge = ({ newsItem }) => {
   const { ValueData, SeoData, CreatedDate, PageName, PageNameRewrite } =
@@ -46,7 +46,7 @@ const NewsItemLarge = ({ newsItem }) => {
             <div className="jeg_meta_date">
               <Link href={linkNewsDetail}>
                 <a>
-                  <i className="fa fa-clock-o"></i> {formatDateTimeView(CreatedDate)}
+                  <i className="fa fa-clock-o"></i> {formatDateTimeAgo(CreatedDate)}
                 </a>
               </Link>
             </div>

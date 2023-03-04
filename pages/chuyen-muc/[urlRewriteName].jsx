@@ -57,6 +57,13 @@ const NewsCategory = (props) => {
     router.push(link);
   };
 
+  const roots = [
+    {
+      Url: getLinkUrl(EnumRoutingPage.CATEGORY_NEWS.id, urlRewriteName),
+      Name: urlRewriteName,
+    },
+  ];
+
   return (
     <Layout config={config}>
       <div className="jeg_content">
@@ -68,17 +75,8 @@ const NewsCategory = (props) => {
                 <div className="jeg_inner_content">
                   <div className="jnews_category_header_bottom">
                     <div className="jeg_cat_header jeg_cat_header_1">
-                      <div className="jeg_breadcrumbs jeg_breadcrumb_category jeg_breadcrumb_container">
-                        <div id="breadcrumbs"><span className="">
-                          <a href="https://ngoisaoexpress.net">Trang chủ</a>
-                        </span><i className="fa fa-angle-right"></i><span className="">
-                            <a href="">Danh mục</a>
-                          </span><i className="fa fa-angle-right"></i><span className="breadcrumb_last_link">
-                            <a href="https://ngoisaoexpress.net/category/chuyen-lang-sao/">Chuyện làng sao</a>
-                          </span>
-                        </div>
-                      </div>
-                      <h1 className="jeg_cat_title">Chuyện làng sao</h1>
+                      <FutureTitle roots={roots} />
+                      <h1 className="jeg_cat_title">{urlRewriteName}</h1>
                     </div>
                   </div>
                   <div className="jnews_category_content_wrapper">

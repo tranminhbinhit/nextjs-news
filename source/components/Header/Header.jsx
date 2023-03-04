@@ -5,13 +5,7 @@ import { EnumLanguage, EnumRoutingPage } from "../../constants/enum";
 import { changeStatePopup } from "../../redux/action/mainAction";
 import { wrapper } from "../../redux/store";
 import AdsRow728 from '../Ads/AdsRow728';
-import { formatPhone, getImage, getImageCdn, getLinkUrl, getSettingValue, isEmptyObject } from "../../utils/utils";
-import MobilePopupCart from "./components/MobilePopupCart";
-import MobilePopupMenu from "./components/MobilePopupMenu";
-import MobilePopupSearch from "./components/MobilePopupSearch";
-import SearchForm from "./components/SearchForm";
-import WebMenu from "./components/WebMenu";
-import WebPopupCart from "./components/WebPopupCart";
+import { formatDate, formatDateTimeView, getDate, getImage, getLinkUrl, isEmptyObject } from "../../utils/utils";
 
 /* eslint-disable */
 class Header extends Component {
@@ -49,7 +43,6 @@ class Header extends Component {
       WebIcon,
       WebEmail,
     } = setting || {};
-
     // const listLanguage = EnumLanguage.map((lang) => {
     //   const { id, code, name } = lang;
     //   return (
@@ -63,7 +56,7 @@ class Header extends Component {
     //     </div>
     //   );
     // });
-
+    const dateTimeView = formatDate(getDate(0));
     return (
       <React.Fragment>
         <div className="jeg_header_wrapper">
@@ -75,7 +68,7 @@ class Header extends Component {
                   <div className="jeg_nav_col jeg_nav_left  jeg_nav_grow">
                     <div className="item_wrap jeg_nav_alignleft">
                       <div className="jeg_nav_item jeg_top_date">
-                        Thứ Tư, Tháng Hai 22, 2023
+                        {dateTimeView}
                       </div>
                     </div>
                   </div>
@@ -134,11 +127,9 @@ class Header extends Component {
                         <div className="jeg_mainmenu_wrap">
                           <ul
                             className="jeg_menu jeg_main_menu jeg_menu_style_4 sf-js-enabled sf-arrows"
-                            data-animation="animate"
                           >
                             <li
-                              id="menu-item-1963"
-                              className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1956 current_page_item menu-item-1963 bgnav"
+                              className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-1956 menu-item-1963 bgnav ${'current-menu-item'}`}
                               data-item-row="default"
                             >
                               <Link href="/">
@@ -151,7 +142,7 @@ class Header extends Component {
                               const { PageNameRewrite, PageName } = m;
                               return (
                                 <li
-                                  className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2000 bgnav"
+                                  className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-1956 menu-item-1963 bgnav`}
                                   key={`key-c-${PageNameRewrite}`} 
                                 >
                                   <Link href={getLinkUrl(EnumRoutingPage.CATEGORY_NEWS.id, PageNameRewrite)}>

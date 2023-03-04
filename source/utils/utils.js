@@ -122,6 +122,11 @@ export function formatJustMonth(date) {
   return moment(date).format(COMMON_CONST.FormatJustMonth);
 }
 
+export function formatDateTimeAgo(date) {
+  const dateTimeAgo = moment(new Date(date)).fromNow();
+  return dateTimeAgo;
+}
+
 export function parseToInt(value) {
   return parseInt(value, 10);
 }
@@ -218,7 +223,7 @@ export function getImage(url, size) {
       return url;
     }
   } else {
-    return '/images/no-image.png';
+    return '/images/preloader1.gif';
   }
 }
 

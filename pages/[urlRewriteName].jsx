@@ -9,6 +9,7 @@ import {
   getNewsTop,
 } from "../source/service/newsService";
 import {
+  formatDateTimeAgo,
   getImage,
   getImageCdn,
   getLinkUrl,
@@ -72,7 +73,9 @@ const NewsDetail = (props) => {
     ValueData,
     HtmlContent,
     NameRewrite: NewsUrl,
-    CreatedDate
+    CreatedDate,
+    PageNameRewrite,
+    PageName,
   } = newsDetail || {};
   const {
     SeoAttrImage: NewsImage,
@@ -82,16 +85,17 @@ const NewsDetail = (props) => {
   const {
     TextTitle: NewsName,
   } = ValueData || {};
-  // const roots = [
-  //   {
-  //     Url: getLinkUrl(EnumRoutingPage.CATEGORY_NEWS.id, NewsCategoryUrl),
-  //     Name: NewsCategoryName,
-  //   },
-  //   {
-  //     Url: "",
-  //     Name: NewsName,
-  //   },
-  // ];
+
+  const roots = [
+    {
+      Url: getLinkUrl(EnumRoutingPage.CATEGORY_NEWS.id, PageNameRewrite),
+      Name: PageName,
+    },
+    {
+      Url: "",
+      Name: NewsName,
+    },
+  ];
 
   const newsImage = getImage(NewsImage);
 
@@ -102,28 +106,25 @@ const NewsDetail = (props) => {
       description={NewsDescription}
       image={newsImage}
     >
-      {/* <FutureTitle roots={roots} /> */}
       <div className="jeg_content">
         <div className="container">
           <AdsRow728 page="detail" position="left_1" />
           <div className="row">
             <div className="jeg_main_content col-md-8">
               <div className="jeg_inner_content">
-                <div className="jeg_breadcrumbs jeg_breadcrumb_container">
-                  <div id="breadcrumbs"><span className="">
-                    <a href="https://ngoisaoexpress.net/">Trang chủ</a>
-                  </span><i className="fa fa-angle-right"></i><span className="breadcrumb_last_link">
-                      <a href="https://ngoisaoexpress.net/category/lam-dep/">Làm đẹp</a>
-                    </span>
-                  </div>
-                </div>
+
+                <FutureTitle roots={roots} />
                 <div className="entry-header">
                   <h1 className="jeg_post_title">{NewsName}</h1>
                   <div className="jeg_meta_container">
                     <div className="jeg_post_meta jeg_post_meta_1">
                       <div className="meta_left">
                         <div className="jeg_meta_date">
-                          <a href="https://ngoisaoexpress.net/chuyen-gia-kieu-nguyen-chinh-phuc-khach-hang-voi-su-tan-tam-cong-hien/">2 tuần ago</a>
+                          <Link href={getLinkUrl(EnumRoutingPage.NEWS.id, NewsUrl)}>
+                            <a>
+                              {formatDateTimeAgo(CreatedDate)}
+                            </a>
+                          </Link>
                         </div>
                       </div>
                       <div className="meta_right"></div>

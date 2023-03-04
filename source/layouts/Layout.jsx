@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import {
   getImage,
-  getImageCdn,
   getSettingValue,
   isEmpty,
   isEmptyObject,
@@ -37,7 +36,7 @@ const Layout = ({ children, title, description, image, config }) => {
 
   title = title || WebTitle;
   description = description || WebDescription;
-  image = image || getImageCdn(WebImage);
+  image = image || getImage(WebImage);
   return (
     <React.Fragment>
       <Head>
