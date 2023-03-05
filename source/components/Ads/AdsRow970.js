@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { wrapper } from "../../redux/store";
-import { isEmptyObject } from "../../utils/utils";
+import { getImage, isEmptyObject } from "../../utils/utils";
 
 const AdsRow970 = (props) => {
   const { page, position, config } = props;

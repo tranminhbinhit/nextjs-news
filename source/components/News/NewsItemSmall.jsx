@@ -14,18 +14,20 @@ const NewsItemSmall = ({ newsItem }) => {
   return (
     <article className="jeg_post jeg_pl_sm format-standard">
       <div className="jeg_thumb">
-        <a href="https://ngoisaoexpress.net/phim-cau-ut-nha-tai-phiet-bi-chi-trich-vi-chinh-sua-da-qua-da-cho-song-joong-ki/">
-          <div className="thumbnail-container animate-lazy  size-715">
-            <img width="120" height="86"
-              src={getImage(NewsImage)}
-              className="attachment-jnews-120x86 size-jnews-120x86 wp-post-image lazyautosizes lazyloaded"
-              alt={NewsName}
-              decoding="async"
-              loading="lazy"
-              sizes="120px"
-              title={NewsName} />
-          </div>
-        </a>
+        <Link href={linkNewsDetail}>
+          <a>
+            <div className="thumbnail-container animate-lazy  size-715">
+              <img width="120" height="86"
+                src={getImage(NewsImage)}
+                className="attachment-jnews-120x86 size-jnews-120x86 wp-post-image lazyautosizes lazyloaded"
+                alt={NewsName}
+                decoding="async"
+                loading="lazy"
+                sizes="120px"
+                title={NewsName} />
+            </div>
+          </a>
+        </Link>
       </div>
       <div className="jeg_postblock_content">
         <h3 className="jeg_post_title">
