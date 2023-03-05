@@ -246,7 +246,7 @@ export default class CustomDocument extends Document {
             <NextScript />
           </div>
           <div id="jeg_off_canvas" className="normal">
-            <a href="https://ngoisaoexpress.net/#" className="jeg_menu_close">
+            <a className="jeg_menu_close">
               <i className="jegicon-cross"></i>
             </a>
             <div className="jeg_bg_overlay"></div>

@@ -5,7 +5,6 @@ import Layout from "../source/layouts/Layout";
 
 import React from "react";
 import { getNewsHome } from "../source/service/newsService";
-import { COMMON_CONST } from "../source/constants/constants";
 import { isEmptyObject } from "../source/utils/utils";
 import EmptyData from "../source/components/BoxSite/EmptyData";
 import NewsItemBox from "../source/components/News/NewsItemBox";
@@ -14,7 +13,7 @@ import NewsItemSmall from "../source/components/News/NewsItemSmall";
 import NewsItem from "../source/components/News/NewsItem";
 import AdsBox345 from "../source/components/Ads/AdsBox345";
 import AdsRow970 from "../source/components/Ads/AdsRow970";
-import HotNews from "../source/components/Home/HotNews";
+import LoadingOverlayContent from "../source/components/Loading/LoadingOverlayContent";
 
 export async function getServerSideProps(context) {
   const { res } = context;
@@ -44,10 +43,6 @@ const Home = (props) => {
   //Redux
   const dispatch = useDispatch();
   const setting = useSelector((state) => state.setting);
-  const { language } = setting;
-  // useEffect(() => {
-  //   dispatch(changeLanguage('bbb'));
-  // }, [dispatch]);
 
   return (
     <Layout config={config}>
@@ -85,7 +80,6 @@ const Home = (props) => {
                   </div>
                   <div
                     className="jeg_postblock_22 jeg_postblock jeg_module_hook jeg_pagination_nextprev jeg_col_2o3 jnews_module_1956_2_63f5e702458d0"
-                    data-unique="jnews_module_1956_2_63f5e702458d0"
                   >
                     <div className="jeg_block_heading jeg_block_heading_7 jeg_subcat_right">
                       <h3 className="jeg_block_title">
@@ -106,25 +100,8 @@ const Home = (props) => {
                           <EmptyData listData={listNewsBotton} />
                         </div>
                       </div>
-                      <div className="module-overlay">
-                        <div className="preloader_type preloader_dot">
-                          <div className="module-preloader jeg_preloader dot">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </div>
-                          <div className="module-preloader jeg_preloader circle">
-                            <div className="jnews_preloader_circle_outer">
-                              <div className="jnews_preloader_circle_inner"></div>
-                            </div>
-                          </div>
-                          <div className="module-preloader jeg_preloader square">
-                            <div className="jeg_square">
-                              <div className="jeg_square_inner"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+
+                      <LoadingOverlayContent />
                     </div>
                     {/* <div className="jeg_block_navigation">
                       <div className="navigation_overlay">
@@ -136,14 +113,14 @@ const Home = (props) => {
                       </div>
                       <div className="jeg_block_nav">
                         <a
-                          href="https://ngoisaoexpress.net/#"
+                          href="#"
                           className="prev disabled"
                           title="Previous"
                         >
                           <i className="fa fa-angle-left"></i>
                         </a>
                         <a
-                          href="https://ngoisaoexpress.net/#"
+                          href="#"
                           className="next"
                           title="Next"
                         >
@@ -173,34 +150,8 @@ const Home = (props) => {
                               ))
                               : ""}
                           </div>
-                          <div className="module-overlay">
-                            <div className="preloader_type preloader_dot">
-                              <div className="module-preloader jeg_preloader dot">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                              </div>
-                              <div className="module-preloader jeg_preloader circle">
-                                <div className="jnews_preloader_circle_outer">
-                                  <div className="jnews_preloader_circle_inner"></div>
-                                </div>
-                              </div>
-                              <div className="module-preloader jeg_preloader square">
-                                <div className="jeg_square">
-                                  <div className="jeg_square_inner"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="jeg_block_navigation">
-                          <div className="navigation_overlay">
-                            <div className="module-preloader jeg_preloader">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                            </div>
-                          </div>
+
+                          <LoadingOverlayContent />
                         </div>
                       </div>
                     </div>
@@ -250,57 +201,7 @@ const Home = (props) => {
                         ))
                         : ""}
                     </div>
-                    <div className="module-overlay">
-                      <div className="preloader_type preloader_dot">
-                        <div className="module-preloader jeg_preloader dot">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                        </div>
-                        <div className="module-preloader jeg_preloader circle">
-                          <div className="jnews_preloader_circle_outer">
-                            <div className="jnews_preloader_circle_inner"></div>
-                          </div>
-                        </div>
-                        <div className="module-preloader jeg_preloader square">
-                          <div className="jeg_square">
-                            <div className="jeg_square_inner"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="jeg_block_navigation">
-                    <div className="navigation_overlay">
-                      <div className="module-preloader jeg_preloader">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
-                    <div className="jeg_navigation jeg_pagination jeg_pagenav_1 jeg_alignleft no_navtext no_pageinfo">
-                      <span className="page_info">Page 1 of 283</span>
-                      <span className="page_number active">1</span>
-                      <a
-                        className="page_number"
-                        href="https://ngoisaoexpress.net/page/2/"
-                      >
-                        2
-                      </a>
-                      <span className="page_number dots">…</span>
-                      <a
-                        className="page_number"
-                        href="https://ngoisaoexpress.net/page/283/"
-                      >
-                        283
-                      </a>
-                      <a
-                        className="page_nav next"
-                        href="https://ngoisaoexpress.net/page/2/"
-                      >
-                        <span className="navtext">Next</span>
-                      </a>
-                    </div>
+                    <LoadingOverlayContent />
                   </div>
                 </div>
               </div>
@@ -332,34 +233,8 @@ const Home = (props) => {
                               ))
                               : ""}
                           </div>
-                          <div className="module-overlay">
-                            <div className="preloader_type preloader_dot">
-                              <div className="module-preloader jeg_preloader dot">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                              </div>
-                              <div className="module-preloader jeg_preloader circle">
-                                <div className="jnews_preloader_circle_outer">
-                                  <div className="jnews_preloader_circle_inner"></div>
-                                </div>
-                              </div>
-                              <div className="module-preloader jeg_preloader square">
-                                <div className="jeg_square">
-                                  <div className="jeg_square_inner"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="jeg_block_navigation">
-                          <div className="navigation_overlay">
-                            <div className="module-preloader jeg_preloader">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                            </div>
-                          </div>
+
+                          <LoadingOverlayContent />
                         </div>
                       </div>
                     </div>

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "../source/layouts/Layout";
 import { useDispatch } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 import FutureTitle from "../source/components/BoxSite/FutureTitle";
 import { getLinkUrl, isEmptyObject } from "../source/utils/utils";
 import EmptyData from "../source/components/BoxSite/EmptyData";
@@ -41,11 +41,20 @@ export async function getServerSideProps(context) {
 const SearchProduct = (props) => {
   const { listNews, keySearch, config, pageNumber } = props;
 
+  const [keySearchText, setKeySearch] = useState(keySearch);
+
   const router = useRouter();
   const handlePageClick = (event) => {
     const link = `${getLinkUrl(EnumRoutingPage.SEARCH.id, keySearch)}&p=${event.selected + 1}`;
     router.push(link);
   }
+
+  const handleSubmit = async (event) => {
+    //debugger
+    event.preventDefault();
+    router.push(getLinkUrl(EnumRoutingPage.SEARCH.id, keySearchText));
+    //setKeySearch('');
+  };
 
   const roots = [
     {
@@ -67,20 +76,23 @@ const SearchProduct = (props) => {
               <div className="jeg_main_content col-sm-8">
                 <div className="jeg_inner_content">
                   <div className="jeg_archive_header">
-                    <div className="jeg_breadcrumbs jeg_breadcrumb_container">
-                      <div id="breadcrumbs"><span className="">
-                        <a href="https://ngoisaoexpress.net">Trang chủ</a>
-                      </span><i className="fa fa-angle-right"></i><span className="breadcrumb_last_link">
-                          <a href="">Tìm kiếm</a>
-                        </span>
-                      </div>
-                    </div>
-                    <h1 className="jeg_archive_title">Search Result for 'ga'</h1>
+                    <FutureTitle roots={roots} />
+                    <h1 className="jeg_archive_title">Kết quả với từ khóa '{keySearch}'</h1>
                     <div className="jeg_archive_search">
-                      {/* <form action="https://ngoisaoexpress.net/" method="get" className="jeg_search_form" target="_top">
-                                          <input name="s" className="jeg_search_input" placeholder="Tìm kiếm..." type="text" value="ga" autocomplete="off" />
-                                          <button aria-label="Search Button" type="submit" className="jeg_search_button btn"><i className="fa fa-search"></i></button>
-                                       </form> */}
+                      <form
+                        onSubmit={handleSubmit}
+                        className="jeg_search_form"
+                      >
+                        <input name="s"
+                          className="jeg_search_input"
+                          placeholder="Tìm kiếm..."
+                          type="text"
+                          value={keySearchText}
+                          onChange={event => {
+                            setKeySearch(event.target.value);
+                          }} />
+                        <button aria-label="Search Button" type="submit" className="jeg_search_button btn"><i className="fa fa-search"></i></button>
+                      </form>
                       <div className="jeg_search_result jeg_search_hide with_result">
                         <div className="search-result-wrapper">
                         </div>

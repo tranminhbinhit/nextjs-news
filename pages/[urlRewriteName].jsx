@@ -133,7 +133,11 @@ const NewsDetail = (props) => {
                 </div>
                 <div className="jeg_featured featured_image">
                   <a>
-                    <img width="750" height="375" src={newsImage} className="attachment-jnews-750x375 size-jnews-750x375 wp-post-image lazyautosizes lazyloaded" alt="Nicola Peltz đang đưa câu chuyện ‘chiếc váy cưới’ đi quá xa khiến Victoria bối rối" decoding="async" sizes="750px" data-src="https://ngoisaoexpress.net/wp-content/uploads/2023/02/9-ngoisaovn-w1200-h720-1-750x375.jpg" />
+                    <img width="750" height="375"
+                      src={newsImage}
+                      className="attachment-jnews-750x375 size-jnews-750x375 wp-post-image lazyautosizes lazyloaded"
+                      alt={NewsName}
+                      decoding="async" sizes="750px" />
                   </a>
                 </div>
                 <AdsRow728 page="detail" position="left_2" />
@@ -142,12 +146,7 @@ const NewsDetail = (props) => {
                     __html: HtmlContent,
                   }} />
                 </div>
-                <div className="jeg_ad jeg_article jnews_content_bottom_ads">
-                  <div className="ads-wrapper"><a href="" rel="noopener" className="adlink ads_image">
-                    <img src="http://ngoisaoexpress.net/wp-content/uploads/2022/12/HSBC_728x90px_3.jpg" className="lazyload" data-src="http://ngoisaoexpress.net/wp-content/uploads/2022/12/HSBC_728x90px_3.jpg" alt="" data-pin-no-hover="true" />
-                  </a>
-                  </div>
-                </div>
+                <AdsRow728 page="detail" position="left_3" />
                 <div className="jnews_prev_next_container hidden">
                   <div className="jeg_prevnext_post">
                     <a href="" className="post prev-post">
