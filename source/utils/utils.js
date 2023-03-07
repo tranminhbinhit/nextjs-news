@@ -4,12 +4,15 @@ import hmacSHA256 from "crypto-js/hmac-sha256";
 import SHA1 from "crypto-js/sha1";
 import moment from "moment";
 import Base64 from "crypto-js/enc-base64";
+import CryptoJS from "crypto-js";
 
 import {
   COMMON_CONST,
   CURRENCY_SYMBOL,
 } from "../constants/constants";
 import { EnumRoutingPage } from "../constants/enum";
+
+const CDN_URL = process.env.CDN_URL;
 
 export function isEmpty(value) {
   return value === undefined || value === null || value === "";
@@ -215,13 +218,33 @@ export function getImageCdn(url, size = undefined) {
   return `${process.env.CDN_URL}/${sizeImage}${url}`;
 }
 
+export function encodeBase64(myString) {
+  const encodedWord = CryptoJS.enc.Utf8.parse(myString); // encodedWord Array object
+  const encoded = CryptoJS.enc.Base64.stringify(encodedWord); // string: 'NzUzMjI1NDE='
+  return encoded;
+}
+
 export function getImage(url, size) {
+  //var wordArray = encodeBase64(url);
   if (!isEmpty(url)) {
     if (url.indexOf('http://') < 0 && url.indexOf('https://') < 0) {
       return getImageCdn(url, size);
     } else {
-      return url;
+      return getImageBase64(url);
+      //return url;
     }
+  } else {
+    return '/images/preloader1.gif';
+  }
+}
+
+export function getImageBase64(url) {
+  if (!isEmpty(url)) {
+    if(url.indexOf('.jpg') >= 0){
+      var wordArray = encodeBase64(url);
+      return `${CDN_URL}/cdn-${process.env.PREFIX_NAME}-${wordArray.toString()}.jpg`;
+    }
+    return url;
   } else {
     return '/images/preloader1.gif';
   }

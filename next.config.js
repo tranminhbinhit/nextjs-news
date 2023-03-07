@@ -11,6 +11,10 @@ const nextConfig = {
   // sassOptions: {
   //   includePaths: [path.join(__dirname, 'styles')],
   // },
+  env: {
+    CDN_URL: process.env.CDN_URL,
+    PREFIX_NAME: process.env.PREFIX_NAME,
+  }
 }
 
 module.exports = nextConfig

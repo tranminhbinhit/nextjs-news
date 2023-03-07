@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { EnumRoutingPage } from "../../constants/enum";
-import { getImage, formatDateTimeView, getLinkUrl } from "../../utils/utils";
+import { getImage, formatDateTimeView, getLinkUrl, getImageBase64 } from "../../utils/utils";
 /* eslint-disable */
 const NewsItem = ({ newsItem }) => {
   const { ValueData, SeoData, CreatedDate } =
