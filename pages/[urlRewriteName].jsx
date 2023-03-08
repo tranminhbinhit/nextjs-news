@@ -19,14 +19,13 @@ import {
 import FutureTitle from "../source/components/BoxSite/FutureTitle";
 import Link from "next/link";
 import SocialShare from "../source/components/BoxSite/SocialShare";
-import NewsRelate from "../source/components/News/NewsRelate";
-import LeftBarNews from "../source/components/News/LeftBarNews";
 import { EnumRoutingPage } from "../source/constants/enum";
 import NewsItemSmall from "../source/components/News/NewsItemSmall";
 import NewsItem from "../source/components/News/NewsItem";
 import AdsRow728 from "../source/components/Ads/AdsRow728";
 import AdsBox345 from "../source/components/Ads/AdsBox345";
 import LoadingOverlayContent from "../source/components/Loading/LoadingOverlayContent";
+import LeftBarNews from "../source/components/News/LeftBarNews";
 
 export async function getServerSideProps(context) {
   const { query, res } = context;
@@ -187,21 +186,7 @@ const NewsDetail = (props) => {
               </div>
             </div>
             <div className="jeg_sidebar  jeg_sticky_sidebar col-md-4">
-              <div className="jegStickyHolder">
-                <div className="theiaStickySidebar">
-                  <AdsBox345 page="detail" position="right_1" />
-                  <div className="widget widget_jnews_module_block_21" id="jnews_module_block_21-2">
-                    <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6016_2_63fcbe6e91d0d  jeg_pb_boxed normal">
-                      <div className="jeg_block_container">
-                        <div className="jeg_posts jeg_load_more_flag">
-                          {!isEmptyObject(listNewsRelate) ? listNewsRelate.map(newsItem => <NewsItemSmall key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
-                        </div>
-                        <LoadingOverlayContent />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <LeftBarNews />
             </div>
           </div>
         </div>

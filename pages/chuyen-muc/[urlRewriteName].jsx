@@ -5,7 +5,6 @@ import React from "react";
 import { getNewsList } from "../../source/service/newsService";
 import FutureTitle from "../../source/components/BoxSite/FutureTitle";
 import { getLinkUrl, isEmptyObject } from "../../source/utils/utils";
-import LeftBarNews from "../../source/components/News/LeftBarNews";
 import NewsItem from "../../source/components/News/NewsItem";
 import NewsItemMore from "../../source/components/News/NewsItemMore";
 import EmptyData from "../../source/components/BoxSite/EmptyData";
@@ -17,6 +16,8 @@ import NewsItemSmall from "../../source/components/News/NewsItemSmall";
 import AdsRow728 from "../../source/components/Ads/AdsRow728";
 import AdsBox345 from "../../source/components/Ads/AdsBox345";
 import AdsRow970 from "../../source/components/Ads/AdsRow970";
+import LoadingOverlayContent from "../../source/components/Loading/LoadingOverlayContent";
+import LeftBarNews from "../../source/components/News/LeftBarNews";
 
 export async function getServerSideProps(context) {
   const { query, res } = context;
@@ -87,23 +88,7 @@ const NewsCategory = (props) => {
                           {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemMore key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
                           <EmptyData listData={listNews} />
                         </div>
-                        <div className="module-overlay">
-                          <div className="preloader_type preloader_dot">
-                            <div className="module-preloader jeg_preloader dot">
-                              <span></span><span></span><span></span>
-                            </div>
-                            <div className="module-preloader jeg_preloader circle">
-                              <div className="jnews_preloader_circle_outer">
-                                <div className="jnews_preloader_circle_inner"></div>
-                              </div>
-                            </div>
-                            <div className="module-preloader jeg_preloader square">
-                              <div className="jeg_square">
-                                <div className="jeg_square_inner"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <LoadingOverlayContent />
                       </div>
                       <div className="jeg_block_navigation">
                         <PaginatePage
@@ -118,42 +103,7 @@ const NewsCategory = (props) => {
                 </div>
               </div>
               <div className="jeg_sidebar left jeg_sticky_sidebar col-sm-4">
-                <div className="jegStickyHolder">
-                  <div className="theiaStickySidebar">
-                    <AdsBox345 page="category" position="right_1" />
-                    <div className="widget widget_jnews_module_block_21" id="jnews_module_block_21-2">
-                      <div className="jeg_postblock_21 jeg_postblock jeg_module_hook jeg_pagination_disable jeg_col_1o3 jnews_module_6192_3_63fcb513166d8  jeg_pb_boxed normal" data-unique="jnews_module_6192_3_63fcb513166d8">
-                        <div className="jeg_block_container">
-                          <div className="jeg_posts jeg_load_more_flag">
-                            {!isEmptyObject(listNews) ? listNews.map(newsItem => <NewsItemSmall key={`key-${newsItem.CrawlerDataId}`} newsItem={newsItem} />) : ''}
-                          </div>
-                          <div className="module-overlay">
-                            <div className="preloader_type preloader_dot">
-                              <div className="module-preloader jeg_preloader dot">
-                                <span></span><span></span><span></span>
-                              </div>
-                              <div className="module-preloader jeg_preloader circle">
-                                <div className="jnews_preloader_circle_outer">
-                                  <div className="jnews_preloader_circle_inner"></div>
-                                </div>
-                              </div>
-                              <div className="module-preloader jeg_preloader square">
-                                <div className="jeg_square">
-                                  <div className="jeg_square_inner"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="jeg_block_navigation">
-                          <div className="navigation_overlay">
-                            <div className="module-preloader jeg_preloader"><span></span><span></span><span></span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <LeftBarNews />
               </div>
             </div>
           </div>

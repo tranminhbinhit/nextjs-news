@@ -14,6 +14,7 @@ const nextConfig = {
   env: {
     CDN_URL: process.env.CDN_URL,
     PREFIX_NAME: process.env.PREFIX_NAME,
+    API_ENOW: process.env.API_ENOW
   }
 }
 
