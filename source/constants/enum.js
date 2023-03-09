@@ -702,3 +702,31 @@ export const EnumLandingPageType = {
     description: 'Trang tùy biến',
   },
 };
+
+
+export const EnumViewPosition = {
+  HomeTop: {
+    id: 1,
+    description: 'Trang chủ - bên trái',
+  },
+  HomeLeft1: {
+    id: 2,
+    description: 'Trang chủ - bên trái',
+  },
+  HomeRight1: {
+    id: 3,
+    description: 'Trang chủ bên phải',
+  },
+  HomeLeft2: {
+    id: 4,
+    description: 'Trang chủ - ở dưới bên phải',
+  },
+  HomeRight2: {
+    id: 5,
+    description: 'Trang chủ - ở dưới bên phải',
+  },
+  NewsRight: {
+    id: 6,
+    description: 'Trang tin tức - bên phải',
+  },
+};
