@@ -10,72 +10,60 @@ import { getLinkUrl } from "../../../utils/utils";
 
 const MobilePopupSearch = (props) => {
   const router = useRouter();
-  const [keySearch, setSearchValue] = useState("");
-  const { changeStatePopupConnect } = props;
-  const controlKey = 'isPopupMobileSearch';
+  const [keySearch, setKeySearch] = useState('');
+  const { isOpenSearchMobile, setIsOpenSearchMobile } = props;
 
-  const searchProduct = () => {
+  const handleSubmit = async (event) => {
+    //debugger
+    event.preventDefault();
     router.push(getLinkUrl(EnumRoutingPage.SEARCH.id, keySearch));
-    setSearchValue("");
-    changeStatePopupConnect(controlKey, false);
+    setKeySearch('');
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      searchProduct();
-    }
-  };
 
   return (
-    <LayoutPopupMobile controlKey={controlKey} position="undefined">
-      <div className="dark text-center">
-        <div className="searchform-wrapper ux-search-box relative form-flat is-large">
-          <div className="searchform">
-            <div className="flex-row relative">
-              <div className="flex-col flex-grow">
-                <label
-                  className="screen-reader-text"
-                  htmlFor="woocommerce-product-search-field-1"
-                >
-                  Tìm kiếm:
-                </label>
-                <input
-                  type="search"
-                  className="search-field mb-0"
-                  placeholder="Nhập sản phẩm cần tìm"
-                  value={keySearch}
-                  onKeyDown={handleKeyDown}
-                  onChange={(event) => {
-                    setSearchValue(event.target.value);
-                  }}
-                  name="keySearch"
-                />
-              </div>
-              <div className="flex-col">
-                <button
-                  type="submit"
-                  defaultValue="Tìm kiếm"
-                  className="ux-search-submit submit-button secondary button icon mb-0"
-                  onClick={() => searchProduct()}
-                >
-                  <i className="icon-search" />
-                </button>
-              </div>
-            </div>
-            <div className="live-search-results text-left z-top" />
+    <div className="item_wrap jeg_nav_alignright">
+      <div className="jeg_nav_item jeg_search_wrapper jeg_search_popup_expand">
+        <a
+          className="jeg_search_toggle"
+          onClick={() => setIsOpenSearchMobile(!isOpenSearchMobile)}
+        >
+          <i className={`fa ${!isOpenSearchMobile ? 'fa-search' :'fa-close'}`}></i>
+        </a>
+        <form
+          onSubmit={handleSubmit}
+          className="jeg_search_form"
+        >
+          <input
+            name="s"
+            className="jeg_search_input"
+            placeholder="Tìm kiếm..."
+            type="text"
+            value={keySearch}
+            onChange={event => {
+              setKeySearch(event.target.value);
+            }}
+          />
+          <button
+            aria-label="Search Button"
+            type="submit"
+            className="jeg_search_button btn"
+          >
+            <i className="fa fa-search"></i>
+          </button>
+        </form>
+        <div className="jeg_search_result jeg_search_hide with_result">
+          <div className="search-result-wrapper"></div>
+          <div className="search-link search-noresult">
+            Không có kết quả
+          </div>
+          <div className="search-link search-all-button">
+            <i className="fa fa-search"></i> Xem tất cả kết quả
           </div>
         </div>
       </div>
-    </LayoutPopupMobile>
+    </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  changeStatePopupConnect: (controlKey, value) => {
-    dispatch(changeStatePopup(controlKey, value));
-  }
-});
-
-export default wrapper.withRedux(
-  connect(null, mapDispatchToProps)(MobilePopupSearch)
-);
+export default MobilePopupSearch;

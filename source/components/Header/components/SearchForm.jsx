@@ -6,64 +6,57 @@ import { getLinkUrl } from '../../../utils/utils';
 
 const SearchForm = () => {
   const router = useRouter();
-  const [keySearch, setSearchValue] = useState('');
-  
-  const searchProduct = () => {
+  const [keySearch, setKeySearch] = useState('');
+
+  const handleSubmit = async (event) => {
+    //debugger
+    event.preventDefault();
     router.push(getLinkUrl(EnumRoutingPage.SEARCH.id, keySearch));
-    setSearchValue('');
-  }
-  
-  const handleKeyDown = event => {
-    if (event.key === 'Enter') {
-      searchProduct();
-    }
+    setKeySearch('');
   };
 
   return (
     <React.Fragment>
-      <div className="flex-col hide-for-medium flex-left flex-grow">
-        <ul className="header-nav header-nav-main nav nav-left nav-size-large nav-uppercase">
-          <li className="header-search-form search-form html relative has-icon">
-            <div className="header-search-form-wrapper">
-              <div className="searchform-wrapper ux-search-box relative form-flat is-normal">
-                <div className="searchform">
-                  <div className="flex-row relative">
-                    <div className="flex-col flex-grow">
-                      <label
-                        className="screen-reader-text"
-                        htmlFor="woocommerce-product-search-field-0"
-                      >
-                        Tìm kiếm:
-                      </label>
-                      <input
-                        type="search"
-                        className="search-field mb-0"
-                        placeholder="Nhập sản phẩm cần tìm"
-                        value={keySearch}
-                        onKeyDown={handleKeyDown}
-                        onChange={event => { 
-                          setSearchValue(event.target.value);
-                        }}
-                        name="keySearch"
-                      />
-                    </div>
-                    <div className="flex-col">
-                      <button
-                        type="submit"
-                        defaultValue="Tìm kiếm"
-                        className="ux-search-submit submit-button secondary button icon mb-0"
-                        onClick={() => searchProduct()}
-                      >
-                        <i className="icon-search" />
-                      </button>
-                    </div>
-                  </div>
-                  <div className="live-search-results text-left z-top" />
+      <div className="jeg_nav_col jeg_nav_right jeg_nav_normal">
+        <div className="item_wrap jeg_nav_alignright">
+          <div className="jeg_nav_item jeg_nav_search">
+            <div className="jeg_search_wrapper jeg_search_no_expand rounded">
+              <a className="jeg_search_toggle">
+                <i className="fa fa-search"></i>
+              </a>
+              <form
+                onSubmit={handleSubmit}
+                className="jeg_search_form"
+              >
+                <input
+                  name="s"
+                  className="jeg_search_input"
+                  placeholder="Tìm kiếm..."
+                  type="text"
+                  value={keySearch}
+                  onChange={event => {
+                    setKeySearch(event.target.value);
+                  }}
+                />
+                <button
+                  type="submit"
+                  className="jeg_search_button btn"
+                >
+                  <i className="fa fa-search"></i>
+                </button>
+              </form>
+              <div className="jeg_search_result jeg_search_hide with_result">
+                <div className="search-result-wrapper"></div>
+                <div className="search-link search-noresult">
+                  Không có kết quả
+                </div>
+                <div className="search-link search-all-button">
+                  <i className="fa fa-search"></i> Xem tất cả kết quả
                 </div>
               </div>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );

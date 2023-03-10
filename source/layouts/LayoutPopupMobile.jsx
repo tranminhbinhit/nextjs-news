@@ -9,45 +9,30 @@ import { wrapper } from "../redux/store";
 import { changeStatePopup } from "../redux/action/mainAction";
 
 const LayoutPopupMobile = (props) => {
-  const {children, controlKey, position = 'undefined', changeStatePopupConnect, popup = {} } = props;
+  const { children, controlKey, changeStatePopupConnect, popup = {} } = props;
   const router = useRouter();
   const pathname = router.pathname;
 
-  const classPosition = `off-canvas-${position}`; //undefined|left|right
-  
   const isShowPopup = popup[controlKey];
 
   const changeStatePopup = (value) => {
     changeStatePopupConnect(controlKey, value);
   }
+
+  // if (!isShowPopup) {
+  //   return null;
+  // }
   
-  if(!isShowPopup){
-    return null;
-  }
   return (
     <React.Fragment>
-      <div className="mfp-bg off-canvas off-canvas-left main-menu-overlay mfp-ready" />
-      <div className={`mfp-wrap mfp-auto-cursor off-canvas mfp-ready ${classPosition}`}>
-        <div className="mfp-container mfp-s-ready mfp-inline-holder">
-          <div className="mfp-content">{children}</div>
+      <div className={isShowPopup ? "jeg_show_menu" : ""}>
+        <div id="jeg_off_canvas" className="normal">
+          <a onClick={() => changeStatePopup(false)} className="jeg_menu_close"><i className="jegicon-cross"></i></a>
+          <div className="jeg_bg_overlay" onClick={() => changeStatePopup(false)} ></div>
+          <div className="jeg_mobile_wrapper">
+            {children}
+          </div>
         </div>
-        <button title="Close (Esc)" type="button" className="mfp-close" onClick={() => changeStatePopup(false)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="feather feather-x"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
       </div>
     </React.Fragment>
   );

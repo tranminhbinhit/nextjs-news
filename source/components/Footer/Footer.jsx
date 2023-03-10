@@ -120,9 +120,8 @@ class Footer extends Component {
                   </div>
                </div>
             </div>
-            <div className="jscroll-to-top">
-               <a href="https://ngoisaoexpress.net/#back-to-top" className="jscroll-to-top_link"><i className="fa fa-angle-up"></i></a>
-            </div>
+
+            <GoToTop />
          </React.Fragment>
       );
    }

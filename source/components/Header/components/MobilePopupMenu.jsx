@@ -12,119 +12,108 @@ import { getLinkUrl, getMenuUrl, isEmptyObject } from "../../../utils/utils";
 const MobilePopupMenu = (props) => {
   //For search
   const router = useRouter();
-  const [keySearch, setSearchValue] = useState("");
-  
-  const { changeStatePopupConnect } = props;
+  const [keySearch, setKeySearch] = useState('');
+  const { changeStatePopupConnect, config } = props;
   const controlKey = 'isPopupMobileMenu';
 
-  const searchProduct = () => {
-    router.push(getLinkUrl(EnumRoutingPage.SEARCH.id, keySearch));
-    setSearchValue("");
-    changeStatePopupConnect(controlKey, false);
-  };
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      searchProduct();
-    }
-  };
-
-  const onSelectAction = () => {
-    changeStatePopupConnect(controlKey, false);
+  const changeStatePopup = (value) => {
+    changeStatePopupConnect(controlKey, value);
   }
 
-  //Show menu
-  const showMenu = (menus) => {
-    return menus.map((menu) => {
-      const {
-        MenuName,
-        MenuUrl: url,
-        MenuLink: nameRewrite,
-        MenuViewTypeId: type,
-        DataId: dataId,
-        ListView: listView,
-        MenuId: menuId,
-      } = menu;
-
-      const urlMenu = getMenuUrl(menu);
-      const isHaveChild = !isEmptyObject(listView);
-      const classMenu = `menu-item ${isHaveChild ? "dropdown" : ""}`;
-      return (
-        <li className={classMenu} key={`menu-mobile-${menuId}`}>
-          <Link href={urlMenu}>
-            <a
-              className={`nav-top-link ${isHaveChild ? "dropdown-toggle" : ""}`}
-              id={`dropdownMenu${menuId}`}
-              data-toggle={isHaveChild ? "dropdown" : ""}
-              aria-haspopup={isHaveChild ? "true" : ""}
-              aria-expanded="false"
-            >
-              {MenuName}
-            </a>
-          </Link>
-          {isHaveChild ? (
-            <React.Fragment>
-              <ul
-                className="sub-menu nav-dropdown-default dropdown-menu"
-                aria-labelledby={`dropdownMenu${menuId}`}
-              >
-                {showMenu(listView)}
-              </ul>
-            </React.Fragment>
-          ) : (
-            ""
-          )}
-        </li>
-      );
-    });
+  const handleSubmit = async (event) => {
+    //debugger
+    event.preventDefault();
+    router.push(getLinkUrl(EnumRoutingPage.SEARCH.id, keySearch));
+    setKeySearch('');
+    changeStatePopup(false);
   };
-  const { menus = [] } = props;
+  
+  const { ListCategoryJson: listCategory, ConfigJson: setting } = config;
+
+  const {
+    CompanyName
+ } = setting || {};
   return (
     <LayoutPopupMobile controlKey={controlKey} position="left">
-      <div className="mobile-sidebar no-scrollbar">
-        <div className="sidebar-menu no-scrollbar ">
-          <ul className="nav nav-sidebar nav-vertical nav-uppercase">
-            {showMenu(menus)}
-            <li className="header-search-form search-form html relative has-icon">
-              <div className="header-search-form-wrapper">
-                <div className="searchform-wrapper ux-search-box relative form-flat is-normal">
-                  <div className="searchform">
-                    <div className="flex-row relative">
-                      <div className="flex-col flex-grow">
-                        <input
-                          type="search"
-                          className="search-field mb-0"
-                          placeholder="Nhập sản phẩm cần tìm"
-                          value={keySearch}
-                          onKeyDown={handleKeyDown}
-                          onChange={(event) => {
-                            setSearchValue(event.target.value);
-                          }}
-                          name="keySearch"
-                        />
-                      </div>
-                      <div className="flex-col">
-                        <button
-                          type="submit"
-                          defaultValue="Tìm kiếm"
-                          className="ux-search-submit submit-button secondary button icon mb-0"
-                          onClick={() => searchProduct()}
-                        >
-                          <i className="icon-search" />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="live-search-results text-left z-top" />
-                  </div>
-                </div>
+      <div className="nav_wrap">
+        <div className="item_main">
+          <div className="jeg_aside_item jeg_search_wrapper jeg_search_no_expand rounded">
+            <a href="#" className="jeg_search_toggle"><i className="fa fa-search"></i></a>
+            <form
+              onSubmit={handleSubmit}
+              className="jeg_search_form"
+            >
+              <input
+                name="s"
+                className="jeg_search_input"
+                placeholder="Tìm kiếm..."
+                type="text"
+                value={keySearch}
+                onChange={event => {
+                  setKeySearch(event.target.value);
+                }}
+              />
+              <button
+                aria-label="Search Button"
+                type="submit"
+                className="jeg_search_button btn"
+              >
+                <i className="fa fa-search"></i>
+              </button>
+            </form>
+            <div className="jeg_search_result jeg_search_hide with_result">
+              <div className="search-result-wrapper"></div>
+              <div className="search-link search-noresult">
+                Không có kết quả
               </div>
-            </li>
-          </ul>
+              <div className="search-link search-all-button">
+                <i className="fa fa-search"></i> Xem tất cả kết quả
+              </div>
+            </div>
+          </div>
+          <div className="jeg_aside_item">
+            <ul className="jeg_mobile_menu sf-js-enabled sf-arrows">
+              <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1956 current_page_item menu-item-1982">
+                <Link href="/">
+                  <a onClick={() => changeStatePopup(false)}>Trang chủ</a>
+                </Link>
+              </li>
+
+              {!isEmptyObject(listCategory) ? listCategory.map(m => {
+                const { PageNameRewrite, PageName } = m;
+                return (
+                  <li
+                    className={`menu-item menu-item-type-taxonomy menu-item-object-category`}
+                    key={`key-c-${PageNameRewrite}`}
+                  >
+                    <Link href={getLinkUrl(EnumRoutingPage.CATEGORY_NEWS.id, PageNameRewrite)}>
+                      <a onClick={() => changeStatePopup(false)}>
+                        {PageName}
+                      </a>
+                    </Link>
+                  </li>
+                )
+              }) : ''}
+            </ul>
+          </div>
+        </div>
+        <div className="item_bottom">
+          {/* <div className="jeg_aside_item socials_widget nobg">
+            <a href="" target="_blank" rel="external noopener nofollow" className="jeg_facebook"><i className="fa fa-facebook"></i> </a>
+          </div> */}
+          <div className="jeg_aside_item jeg_aside_copyright">
+            <p>© 2020 Bản quyền {CompanyName}</p>
+          </div>
         </div>
       </div>
     </LayoutPopupMobile>
   );
 };
+
+const mapStateToProps = (state) => ({
+  config: state.setting.config,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   changeStatePopupConnect: (controlKey, value) => {
@@ -133,5 +122,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default wrapper.withRedux(
-  connect(null, mapDispatchToProps)(MobilePopupMenu)
+  connect(mapStateToProps, mapDispatchToProps)(MobilePopupMenu)
 );

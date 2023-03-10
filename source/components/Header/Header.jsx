@@ -1,42 +1,24 @@
 import Link from "next/link";
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { EnumLanguage, EnumRoutingPage } from "../../constants/enum";
 import { changeStatePopup } from "../../redux/action/mainAction";
 import { wrapper } from "../../redux/store";
 import AdsRow728 from '../Ads/AdsRow728';
 import { formatDate, formatDateTimeView, getDate, getImage, getLinkUrl, isEmptyObject } from "../../utils/utils";
+import MobilePopupMenu from './components/MobilePopupMenu';
 import { useRouter } from "next/router";
+import MobilePopupSearch from "./components/MobilePopupSearch";
+import SearchForm from "./components/SearchForm";
 
 /* eslint-disable */
 const Header = (props) => {
   const router = useRouter();
-  const [keySearch, setKeySearch] = useState('');
-  const showHeaderWhenScroll = () => {
-    // const topcontrol = $(".header .header-wrapper");
-    // $(window).on("scroll", () => {
-    //   if ($(window).scrollTop() > 700) {
-    //     topcontrol.addClass("stuck");
-    //   } else {
-    //     topcontrol.removeClass("stuck");
-    //   }
-    // });
-  };
+  const [isOpenSearchMobile, setIsOpenSearchMobile] = useState(false);
 
-  // componentDidMount() {
-  //   this.showHeaderWhenScroll();
-  // }
-
-  // onchangeStatePopup = (controlKey, value) => {
-  //   const { changeStatePopupConnect } = this.props;
-  //   changeStatePopupConnect(controlKey, value);
-  // };
-
-  const handleSubmit = async (event) => {
-    //debugger
-    event.preventDefault();
-    router.push(getLinkUrl(EnumRoutingPage.SEARCH.id, keySearch));
-    setKeySearch('');
+  const onchangeStatePopup = (controlKey, value) => {
+    const { changeStatePopupConnect } = props;
+    changeStatePopupConnect(controlKey, value);
   };
 
   const { config, changeLanguageConnect, language } = props;
@@ -54,6 +36,7 @@ const Header = (props) => {
   const dateTimeView = formatDate(getDate(0));
   return (
     <React.Fragment>
+      {/* header */}
       <div className="jeg_header_wrapper">
         <div className="jeg_header_instagram_wrapper"></div>
         <div className="jeg_header normal">
@@ -156,56 +139,15 @@ const Header = (props) => {
                 <div className="jeg_nav_col jeg_nav_center jeg_nav_normal">
                   <div className="item_wrap jeg_nav_aligncenter"></div>
                 </div>
-                <div className="jeg_nav_col jeg_nav_right jeg_nav_normal">
-                  <div className="item_wrap jeg_nav_alignright">
-                    <div className="jeg_nav_item jeg_nav_search">
-                      <div className="jeg_search_wrapper jeg_search_no_expand rounded">
-                        <Link href="/">
-                          <a
-                            className="jeg_search_toggle"
-                          >
-                            <i className="fa fa-search"></i>
-                          </a>
-                        </Link>
-                        <form
-                          onSubmit={handleSubmit}
-                          className="jeg_search_form"
-                        >
-                          <input
-                            name="s"
-                            className="jeg_search_input"
-                            placeholder="Tìm kiếm..."
-                            type="text"
-                            value={keySearch}
-                            onChange={event => {
-                              setKeySearch(event.target.value);
-                            }}
-                          />
-                          <button
-                            type="submit"
-                            className="jeg_search_button btn"
-                          >
-                            <i className="fa fa-search"></i>
-                          </button>
-                        </form>
-                        <div className="jeg_search_result jeg_search_hide with_result">
-                          <div className="search-result-wrapper"></div>
-                          <div className="search-link search-noresult">
-                            Không có kết quả
-                          </div>
-                          <div className="search-link search-all-button">
-                            <i className="fa fa-search"></i> Xem tất cả kết quả
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <SearchForm />
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
+      {/* Scroll thi hien thi   */}
       <div className="jeg_header_sticky">
         <div className="jeg_header normal">
           <div className="jeg_container">
@@ -272,59 +214,19 @@ const Header = (props) => {
                   <div className="jeg_nav_col jeg_nav_center jeg_nav_normal">
                     <div className="item_wrap jeg_nav_aligncenter"></div>
                   </div>
-                  <div className="jeg_nav_col jeg_nav_right jeg_nav_normal">
-                    <div className="item_wrap jeg_nav_alignright">
-                      <div className="jeg_nav_item jeg_search_wrapper search_icon jeg_search_popup_expand">
-                        <Link href="/">
-                          <a
-                            className="jeg_search_toggle"
-                          >
-                            <i className="fa fa-search"></i>
-                          </a>
-                        </Link>
-                        <form
-                          onSubmit={handleSubmit}
-                          className="jeg_search_form"
-                        >
-                          <input
-                            name="s"
-                            className="jeg_search_input"
-                            placeholder="Tìm kiếm..."
-                            type="text"
-                            value={keySearch}
-                            onChange={event => {
-                              setKeySearch(event.target.value);
-                            }}
-                          />
-                          <button
-                            aria-label="Search Button"
-                            type="submit"
-                            className="jeg_search_button btn"
-                          >
-                            <i className="fa fa-search"></i>
-                          </button>
-                        </form>
-                        <div className="jeg_search_result jeg_search_hide with_result">
-                          <div className="search-result-wrapper"></div>
-                          <div className="search-link search-noresult">
-                            Không có kết quả
-                          </div>
-                          <div className="search-link search-all-button">
-                            <i className="fa fa-search"></i> Xem tất cả kết quả
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <SearchForm />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="jeg_navbar_mobile_wrapper">
+
+
+      {/* Mobile */}
+      <div className="jeg_navbar_mobile_wrapper ">
         <div className="jeg_navbar_mobile" data-mode="scroll">
-          <div className="jeg_mobile_bottombar jeg_mobile_midbar jeg_container dark">
+          <div className={`jeg_mobile_bottombar jeg_mobile_midbar jeg_container dark ${isOpenSearchMobile ? "jeg_search_expanded" : ""}`}>
             <div className="container">
               <div className="jeg_nav_row">
                 <div className="jeg_nav_col jeg_nav_left jeg_nav_normal">
@@ -332,9 +234,13 @@ const Header = (props) => {
                     <div className="jeg_nav_item">
                       <a
                         className="toggle_btn jeg_mobile_toggle"
+                        onClick={() =>
+                          onchangeStatePopup("isPopupMobileMenu", true)
+                        }
                       >
                         <i className="fa fa-bars"></i>
                       </a>
+
                     </div>
                   </div>
                 </div>
@@ -356,53 +262,14 @@ const Header = (props) => {
                   </div>
                 </div>
                 <div className="jeg_nav_col jeg_nav_right jeg_nav_normal">
-                  <div className="item_wrap jeg_nav_alignright">
-                    <div className="jeg_nav_item jeg_search_wrapper jeg_search_popup_expand">
-                      <Link href="/">
-                        <a
-                          className="jeg_search_toggle"
-                        >
-                          <i className="fa fa-search"></i>
-                        </a>
-                      </Link>
-                      <form
-                        onSubmit={handleSubmit}
-                        className="jeg_search_form"
-                      >
-                        <input
-                          name="s"
-                          className="jeg_search_input"
-                          placeholder="Tìm kiếm..."
-                          type="text"
-                          value={keySearch}
-                          onChange={event => {
-                            setKeySearch(event.target.value);
-                          }}
-                        />
-                        <button
-                          aria-label="Search Button"
-                          type="submit"
-                          className="jeg_search_button btn"
-                        >
-                          <i className="fa fa-search"></i>
-                        </button>
-                      </form>
-                      <div className="jeg_search_result jeg_search_hide with_result">
-                        <div className="search-result-wrapper"></div>
-                        <div className="search-link search-noresult">
-                          Không có kết quả
-                        </div>
-                        <div className="search-link search-all-button">
-                          <i className="fa fa-search"></i> Xem tất cả kết quả
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <MobilePopupSearch setIsOpenSearchMobile={setIsOpenSearchMobile} isOpenSearchMobile={isOpenSearchMobile} />
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <MobilePopupMenu />
       </div>
     </React.Fragment>
   );

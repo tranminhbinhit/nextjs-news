@@ -245,12 +245,6 @@ export default class CustomDocument extends Document {
             <Main />
             <NextScript />
           </div>
-          <div id="jeg_off_canvas" className="normal">
-            <a className="jeg_menu_close">
-              <i className="jegicon-cross"></i>
-            </a>
-            <div className="jeg_bg_overlay"></div>
-          </div>
           {/* <script
             data-optimized="1"
             src="./js/129980acb040f76a70bccde6002a5ef6.js"
