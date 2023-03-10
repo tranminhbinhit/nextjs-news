@@ -208,7 +208,7 @@ export default class CustomDocument extends Document {
             name="msapplication-TileImage"
             content="https://ngoisaoexpress.net/wp-content/uploads/2022/08/cropped-Icon_NgoiSaoExpress-1-270x270.png"
           />
-
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
           <link rel="stylesheet" href="/css/style.css" media="all" />
           {/* We only want to add the scripts if in production */}
           {isProduction && (

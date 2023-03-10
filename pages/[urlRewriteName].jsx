@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "../source/layouts/Layout";
 import { useDispatch } from "react-redux";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   getNewsDetail,
   getNewsList,
@@ -98,6 +98,17 @@ const NewsDetail = (props) => {
   ];
 
   const newsImage = getImage(NewsImage);
+
+  useEffect(() => {
+    setTimeout(() => {
+      $('img[data-lazyloaded=1]').each((e, v) => {
+        const imageUrl = $(v).attr('data-src'); 
+        if (!isEmpty(imageUrl)){
+          $(v).attr('src', imageUrl);
+        }
+      });
+    },1000);
+  },[]);
 
   return (
     <Layout
