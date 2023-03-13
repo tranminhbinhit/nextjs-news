@@ -240,11 +240,11 @@ export function getImage(url, size) {
 
 export function getImageBase64(url) {
   if (!isEmpty(url)) {
-    if(url.indexOf('.jpg') >= 0){
-      var wordArray = encodeBase64(url);
-      return `${CDN_URL}/cdn-${process.env.PREFIX_NAME}-${wordArray.toString()}.jpg`;
+    if (url.indexOf('.png') >= 0) {
+      return url;
     }
-    return url;
+    var wordArray = encodeBase64(url);
+    return `${CDN_URL}/cdn-${process.env.PREFIX_NAME}-${wordArray.toString()}.jpg`;
   } else {
     return '/images/preloader1.gif';
   }
